@@ -1,0 +1,52 @@
+﻿.pagination {
+    border-bottom:2px solid #ccc;
+    padding-bottom:20px;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.pagination button {
+    width:20%;
+    float:left;
+    color:#ccc;
+    font-size:12px;
+    -webkit-transition: color 500ms;
+    transition: color 500ms;
+    background:none;
+    border:none;
+    text-align:left;
+    text-transform:uppercase;
+    outline:none;
+    font-weight:bold;
+}
+
+.pagination  button:hover {
+    text-decoration:none;
+}
+
+.pagination .active {
+    color:#666;
+}
+
+.pagination span {
+    display:inline-block;
+    background:#ccc;
+    color:#fff;
+    border-radius:50%;
+    width:22px;
+    height:22px;
+    line-height:22px;
+    text-align:center;
+    margin-right:2px;
+    -webkit-transition: background 500ms;
+    transition: background 500ms;
+    font-size:12px;
+}
+
+.pagination .active span {
+    background:#333;
+}
+
+.pagination span.completed {
+    background:#fc0 !important;
+}

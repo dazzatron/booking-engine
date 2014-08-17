@@ -1,0 +1,257 @@
+﻿/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+ 
+@font-face {
+    font-family: 'Conv_Nobel-Regular';
+    src: url('/fonts/Nobel-Regular.eot');
+    src: local('☺'), url('/fonts/Nobel-Regular.woff') format('woff'), url('/fonts/Nobel-Regular.ttf') format('truetype'), url('/fonts/Nobel-Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: Conv_Nobel-Regular, Arial;
+    color:#555;
+    font-size:13px;
+    overflow-y:scroll;
+}
+
+* {
+    box-sizing:border-box;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight:normal;
+}
+
+.top-links {
+    font-size:15px;
+    margin: 0 -10px 10px
+}
+
+.top-links a {
+    color:#000;
+    background:#eee;
+    padding:5px 10px;
+}
+
+.float-left {
+float:left;
+}
+
+.float-right {
+float:right;
+}
+
+.general-info {
+    color:#799411;
+}
+
+.warning {
+    color:#f00;
+}
+
+.page-wrapper {
+    width:960px;
+    margin:30px auto;  
+    opacity:0;
+}
+
+.page-wrapper.active {
+    -webkit-transition: 500ms 500ms all;
+    transition: 500ms 500ms all;
+    opacity:1;
+}
+
+.page-wrapper img {
+    max-width:100%;
+}
+
+.page-mask {
+    background:#fff;
+    background:rgba(255,255,255,.75);
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    z-index:100;
+    display:table;
+    color:#666;
+    font-size:12px;
+}
+
+.page-mask.ng-leave {
+    -webkit-transition: all 500ms;
+    transition: all 500ms;
+    opacity:1;
+}
+
+.page-mask.ng-leave-active {
+    -webkit-transform:scale(1.1);
+    transform:scale(1.1);
+    opacity:0;
+}
+
+.page-mask span {
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+}
+
+select, input {
+    padding:5px;
+    border-color:#ccc;
+    font-size:12px;
+}
+
+
+.call-to-action {
+    color:#333;
+    padding:5px 15px;
+    font-weight:bold;
+    background:#fc0;
+    outline:none;
+}
+
+.call-to-action:hover {
+    text-decoration:none;
+    color:#666;
+}
+
+.general-action {
+    padding:0 5px;
+    background:#ffeda6;
+    border:none;
+    font-size:11px;
+    color:#666;
+    outline:none;
+    display:inline-block;
+    height:16px;
+    line-height:16px;
+}
+
+.general-action:hover {
+    color:#000;
+    text-decoration:none;
+}
+
+.general-action-2 {
+    padding: 4px 15px;
+    border: #fecd07 solid 3px;
+    background: #fff;
+    font-size: 12px;
+    outline:none;
+    color:#333;
+}
+
+.general-action-2:hover {
+    color:#666;
+    text-decoration:none;
+}
+
+hr {
+    width:100px;
+    text-align:left;
+}
+
+.col-wrapper {
+    margin-top:20px;
+}
+
+.col-main {
+    width:720px;
+    float:left;
+    margin-top:20px;
+}
+
+.col-summary {
+    width:240px;
+    float:right;
+    padding: 20px 0 20px 20px;
+}
+
+.col-summary select {
+    width:100%;
+}
+
+.col-summary h1 {
+    background:#000;
+    color:#fff;
+    font-size:16px;
+    text-align:center;
+    padding:2px 0;
+}
+
+.col-summary h2 {
+    font-size:16px;
+    text-transform:capitalize;
+}
+
+.col-summary hr {
+    width:100%;
+    margin:10px 0;
+}
+
+.float-left {
+float:left;
+}
+
+.float-right {
+float:right;
+}
+
+a {
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:underline;
+}
+
+.booking-engine-header {
+    height:240px;
+    position:relative;
+    margin:0 -10px;
+}
+
+.booking-engine-header img {
+    height:100%;
+    width:100%;
+}
+
+.booking-engine-title {
+    position:absolute;
+    left:0;
+    bottom:0;
+    margin:0;
+    padding:15px 20px;
+    color:#fff;
+    font-size:25px;
+    z-index:1;
+    text-shadow: 0 0 5px #000, 0 5px 10px #000;
+    text-transform:uppercase;
+}
+
+
+.booking-engine-header:after {
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:50%;
+    background: -moz-linear-gradient(left,  rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,.8)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+    background: linear-gradient(to right,  rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 100%); /* W3C */
+}

@@ -1,0 +1,107 @@
+﻿{
+"currencies" : [
+	{
+		"value": "Currency: GB Pounds",
+		"symbol": "£",
+		"rate": 1
+	},
+	{
+		"value": "Currency: US Dollars",
+		"symbol": "$",
+		"rate": 1.7
+	},
+	{
+		"value": "Currency: Euros",
+		"symbol": "€",
+		"rate": 1.3
+	}
+],
+"trip": {
+    "country": "china",
+    "name": "china and the yangtze",
+    "headerImage": "/img/china-header.jpg",
+    "countryImage": "/img/yangtze.jpg",
+    "tripImage": "/img/china-map.jpg",
+    "duration": 15,
+    "maxGroupSize": 18,
+    "pricesFrom": 2000,
+    "roomWordingOptions": [
+        { "id": 1, "name": "Two Double", "adults": 2, "adultOptions": [1, 2, 3, 4], "children": 2, "childOptions": [0, 1, 2, 3], "maxPeople": 4, "perAdult": 2000.00, "perChild": 900 },
+        { "id": 2, "name": "Two Single", "adults": 1, "adultOptions": [1, 2], "children": 0, "childOptions": [0, 1], "maxPeople": 2, "perAdult": 1200, "perChild": 900 },
+        { "id": 3, "name": "One Double", "adults": 1, "adultOptions": [1, 2], "children": 0, "childOptions": [0, 1], "maxPeople": 1, "perAdult": 1400, "perChild": 1000 },
+        { "id": 4, "name": "One Single", "adults": 1, "adultOptions": [0, 1], "children": 0, "childOptions": [0, 1], "maxPeople": 1, "perAdult": 600, "perChild": 400 }
+    ],
+    "dates": [
+    {
+        "id": 1,
+        "limited": true,
+        "from": {
+            "date": "10",
+            "month": "december",
+            "year": "2014"
+        },
+        "to": {
+            "date": "17",
+            "month": "december",
+            "year": "2014"
+        }
+    },
+    {
+        "id": 2,
+        "from": {
+            "date": "17",
+            "month": "december",
+            "year": "2014"
+        },
+        "to": {
+            "date": "24",
+            "month": "december",
+            "year": "2014"
+        }
+    },
+    {
+        "id": 3,
+        "from": {
+            "date": "24",
+            "month": "december",
+            "year": "2014"
+        },
+        "to": {
+            "date": "31",
+            "month": "december",
+            "year": "2014"
+        }
+    },
+    {
+        "id": 4,
+        "from": {
+            "date": "31",
+            "month": "december",
+            "year": "2014"
+        },
+        "to": {
+            "date": "07",
+            "month": "january",
+            "year": "2015"
+        }
+    }
+
+    ],
+    "preTrips": [
+        {
+            "title": "chilean wine tour",
+            "image": "/img/china.jpg",
+            "days": 4,
+            "perPerson": 1000
+        },
+        {
+            "title": "chilean wine tour 2",
+            "image": "/img/china.jpg",
+            "days": 4,
+            "perPerson": 1000
+        }
+    ]
+
+}
+
+}

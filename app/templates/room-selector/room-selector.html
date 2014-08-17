@@ -1,0 +1,118 @@
+﻿<div ng-controller="jmdRoomSelectorCtrl" class="rooms-wrapper">
+
+    <header class="rooms-header">
+
+        <h1>rooms and guests</h1>
+
+        <h2>PRICES BASED ON DOUBLE OCCUPANCY. SINGLE SUPPLEMENTS APPLY.
+        </h2>
+
+        <hr />
+
+        <div class="general-info">Choices made will be applied to all hotels on this trip. Children under 12 years old are not eligible for this trip.
+        </div>
+
+    </header>
+
+    <div class="rooms-body clearfix">
+
+        <div class="room-wrapper" ng-repeat="room in SharedResource.sharedData.formData.rooms track by $index">
+
+            <div class="room-error-wrapper" ng-if="(room.selectedRoom.adults + room.selectedRoom.children) > room.selectedRoom.maxPeople">
+
+                <div class="room-error">
+                    <span>A maximum of<b> {{ room.selectedRoom.maxPeople }} </b>
+        
+                        <span ng-if="room.selectedRoom.maxPeople > 1"><b>guests</b> are</span> 
+                        <span ng-if="room.selectedRoom.maxPeople == 1"><b>guest</b> is</span> 
+
+                        allowed in this room, please correct.
+
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="room clearfix">
+
+                <a href="" 
+                    ng-if="$index > 0" 
+                    ng-click="removeRoom($index)" 
+                    class="room-remove">REMOVE
+                </a>
+
+                <div>                                 
+
+                    <br />
+                    ROOM
+                    <br />
+                    <br />
+
+                    <select
+                        ng-model="room.selectedRoom"
+                        ng-options="room as room.name for room in room">
+                    </select>
+
+                </div>
+
+                <div>
+                    <b>
+                    ADULTS
+                    </b>
+                    <br />
+                    {{ room.selectedRoom.perAdult | currency }}pppn
+                
+                    <br />
+                    <br />
+
+                    <select
+                        ng-model="room.selectedRoom.adults"
+                        ng-options="adults as adults for adults in room.selectedRoom.adultOptions">
+                    </select>
+
+                </div>
+
+                <div>
+                    <b>
+                    CHILDREN
+                    </b>
+                    <br />
+                    {{ room.selectedRoom.perChild | currency }}pppn
+                
+                    <br />
+                    <br />
+
+                    <select
+                        ng-model="room.selectedRoom.children"
+                        ng-options="children as children for children in room.selectedRoom.childOptions">
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="rooms-footer clearfix">
+
+        <div class="float-left">
+
+            <a href="" ng-if="SharedResource.sharedData.formData.totalGuests <= SharedResource.sharedData.trip.maxGroupSize" ng-click="addRoom()">
+                <span class="room-add">+</span>ADD ANOTHER ROOM
+            </a>
+
+        </div>
+
+        <div class="float-right">
+            TOTAL NUMBER OF GUESTS: <b>{{ SharedResource.sharedData.formData.totalGuests }}</b>
+        </div>
+
+        <div ng-if="SharedResource.sharedData.formData.totalGuests > SharedResource.sharedData.trip.maxGroupSize" class="room-guests-error">
+            A maximum of <b>{{ SharedResource.sharedData.trip.maxGroupSize }} guests</b> are allowed on this trip, please correct.
+        </div>
+
+    </footer>
+
+</div>

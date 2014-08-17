@@ -1,0 +1,104 @@
+﻿.date-selector-wrapper {
+    font-size:12px;
+    border-top:4px solid #ccc;
+    margin-bottom:30px;
+}
+
+.date-selector-wrapper h1 {
+    font-size:15px;
+    margin:0;
+    text-transform:uppercase;
+}
+
+.date-selector-wrapper h2 {
+    font-size:11px;
+    margin:0;
+    font-weight:normal;
+    text-transform:uppercase;
+}
+
+.date-selector-wrapper h3 {
+    font-size:11px;
+    margin:0;
+    font-weight:normal;
+    color:#799411;
+}
+
+.date-selector-date {
+    background:#eee;
+    margin-top:20px;
+    height:50px;
+    line-height:40px;
+    cursor:pointer;
+    -webkit-transition: all 500ms;
+    transition: all 500ms;
+    padding:5px;
+}
+
+.date-selector-date-wrapper {
+    width:100px;
+    display:block;
+    float:left;
+    margin:0 20px;
+}
+
+.date-selector-month {
+    font-size: 13px;
+    text-transform: uppercase;
+    display:block;
+    line-height:20px;
+}
+
+.date-selector-day {
+    line-height:20px;
+    font-size: 20px;
+    display:block;
+    float:left;
+}
+
+.date-selector-year {
+    display: block;
+    float: left;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0 5px;
+}
+
+.date-selector-divider {
+    width:80px;
+    text-align:center;
+    float:left;
+    display:block;
+    margin-left:20px;
+}
+
+.date-selector-arrow {
+    background:#ccc;
+    border-radius:50%;
+    height:20px;
+    width:20px;
+    line-height:20px;
+    margin-top:-10px;
+    text-align:center;
+    display:inline-block;
+    color:#eee;
+}
+
+.date-selector-date label {
+    cursor:pointer;
+}
+
+.date-selector-date.active {
+    background:#ddd;
+}
+
+.date-selector-date input {
+    height:40px;
+}
+
+.date-selector-date-message {
+    float:left;
+    width:250px;
+    text-align:center;
+    position:relative
+}

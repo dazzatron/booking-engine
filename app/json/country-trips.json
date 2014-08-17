@@ -1,0 +1,20 @@
+﻿{
+
+	"countries": [
+		{
+			"name": "china",
+			"trips": [
+				"classic china",
+				"china and the yangtze"
+			]
+		},
+		{
+			"name": "japan",
+			"trips": [
+				"classic japan",
+				"passport to the world"
+			]
+		}
+	]
+
+}

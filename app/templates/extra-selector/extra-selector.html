@@ -1,0 +1,36 @@
+﻿<div>
+
+    <h2>EXTRAS</h2>
+    
+    <div class="pre-trip-wrapper clearfix" ng-repeat="extra in extras">
+
+        <div class="pre-trip-image">
+
+            <img ng-src="{{ extra.image }}" />
+
+        </div>
+
+        <div class="pre-trip-details">
+            
+            <h2>{{ extra.title }}</h2>
+            {{ extra.days }} days<br />
+            <br />
+            Per person: {{ extra.perPerson | currency }}<br />
+
+            <button ng-click="changeExtra(extra)" class="float-right general-action-2">
+
+                <span ng-if="!extra.selected">
+                    ADD 
+                </span>
+
+                <span ng-if="extra.selected">
+                    REMOVE 
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

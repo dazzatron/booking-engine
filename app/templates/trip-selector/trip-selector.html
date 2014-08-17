@@ -1,0 +1,112 @@
+﻿<div ng-controller="jmdTripSelectorCtrl" class="trip-wrapper" ng-class="{ edit: changeTripFlag  }">
+
+    <div ng-if="changeTripFlag && !SharedResource.sharedData.countryTrips" class="trip-loading">
+        <span>Loading countries & trips...<br />
+            <br />
+            <img src="/img/ajax-loader.gif" />
+            <br /><br />
+            <a class="general-action" ng-click="cancelTrip()" href="">CANCEL</a>
+        </span>
+    </div>
+
+    <!--country side-->
+    <div class="trip-country-wrapper">
+
+        <!--edit section-->
+        <div class="trip-edit" ng-if="changeTripFlag && SharedResource.sharedData.countryTrips">
+
+            <b>SELECT COUNTRY:</b>
+
+            <br />
+            <br />
+
+            <select
+                ng-model="SharedResource.sharedData.countryTrips.selectedCountry"
+                ng-options="country as country.name for country in SharedResource.sharedData.countryTrips.countries">
+            </select>
+
+        </div>
+
+        <!--view section-->
+        <div ng-if="!changeTripFlag" class="trip-country">
+            <img border="0" ng-if="SharedResource.sharedData.trip.country" ng-src="//maps.googleapis.com/maps/api/staticmap?zoom=3&size=340x210&center={{SharedResource.sharedData.trip.country}}">
+            <a class="general-action" ng-click="changeTrip()" href="">CHANGE TRIP</a>
+        </div>
+
+    </div>
+
+    <!--trip side-->
+    <div class="trip-trip-wrapper">
+
+        <!--edit section-->
+        <div class="trip-edit" ng-if="changeTripFlag && SharedResource.sharedData.countryTrips">
+
+            <b>SELECT TRIP:</b>
+
+            <br />
+            <br />
+
+            <select
+                ng-model="SharedResource.sharedData.countryTrips.selectedCountry.selectedTrip"
+                ng-options="trip for trip in SharedResource.sharedData.countryTrips.selectedCountry.trips">
+            </select>
+
+            <a class="trip-cancel general-action-2" ng-click="cancelTrip()" href="">CANCEL</a>
+
+            <a class="trip-apply general-action" ng-click="changeTrip()" href="">APPLY CHANGES</a>
+
+        </div>
+
+        <!--view section-->
+        <div class="trip-country" ng-if="!changeTripFlag">
+
+            <div class="trip-trip-image-wrapper">
+                <h2>{{ SharedResource.sharedData.trip.name }}</h2>
+                <img ng-src="{{ SharedResource.sharedData.trip.countryImage }}" />
+            </div>
+
+            <table class="trip-table">
+
+                <tr>
+
+                    <td>
+                    Duration:
+                    </td>
+
+                    <td>
+                        <b>{{ SharedResource.sharedData.trip.duration }} days</b>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                    Max group size: 
+                    </td>
+
+                    <td>
+                    <b>{{ SharedResource.sharedData.trip.maxGroupSize }} persons</b>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                    Prices from: 
+                    </td>
+
+                    <td>                    
+                        <b>{{ SharedResource.sharedData.trip.pricesFrom | currency }}pp</b>
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

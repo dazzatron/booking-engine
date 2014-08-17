@@ -1,0 +1,93 @@
+﻿{
+"currencies" : [
+	{
+		"value": "Currency: GB Pounds",
+		"symbol": "£",
+		"rate": 1
+	},
+	{
+		"value": "Currency: US Dollars",
+		"symbol": "$",
+		"rate": 1.7
+	},
+	{
+		"value": "Currency: Euros",
+		"symbol": "€",
+		"rate": 1.3
+	}
+],
+"trip": {
+    "country": "japan",
+    "name": "classic japan",
+    "headerImage": "/img/japan-header.jpg",
+    "countryImage": "/img/japan.jpg",
+    "tripImage": "/img/japan-map.jpg",
+    "duration": 22,
+    "maxGroupSize": 20,
+    "pricesFrom": 5000,
+    "roomWordingOptions": [
+        { "id": 9, "name": "Two Double", "adults": 2, "adultOptions": [1, 2, 3, 4], "children": 2, "childOptions": [0, 1, 2, 3], "maxPeople": 4, "perAdult": 500, "perChild": 200 },
+        { "id": 10, "name": "Two Single", "adults": 1, "adultOptions": [1, 2], "children": 0, "childOptions": [0, 1], "maxPeople": 2, "perAdult": 1200, "perChild": 900 }
+    ],
+    "dates": [
+    {
+        "id": 1,
+        "limited": true,
+        "from": {
+            "date": "10",
+            "month": "march",
+            "year": "2014"
+        },
+        "to": {
+            "date": "17",
+            "month": "march",
+            "year": "2014"
+        }
+    },
+    {
+        "id": 2,
+        "from": {
+            "date": "17",
+            "month": "march",
+            "year": "2014"
+        },
+        "to": {
+            "date": "24",
+            "month": "march",
+            "year": "2014"
+        }
+    },
+    {
+        "id": 3,
+        "soldOut": true,
+        "from": {
+            "date": "24",
+            "month": "march",
+            "year": "2014"
+        },
+        "to": {
+            "date": "31",
+            "month": "march",
+            "year": "2014"
+        }
+    }
+
+    ],
+    "preTrips": [
+        {
+            "title": "chilean wine tour",
+            "image": "/img/china.jpg",
+            "days": 4,
+            "perPerson": 1000
+        },
+        {
+            "title": "chilean wine tour 2",
+            "image": "/img/china.jpg",
+            "days": 4,
+            "perPerson": 1000
+        }
+    ]
+
+}
+
+}

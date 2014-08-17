@@ -1,0 +1,78 @@
+﻿<div ng-controller="jmdDateSelectorCtrl" class="date-selector-wrapper">
+
+    <br />
+    <h1>DATES</h1>
+    <h2>GROUP TOUR DEPARTURE DATES</h2>
+    <hr />
+
+    <div class="date-selector-date"
+        ng-class="{ 'active': date === SharedResource.sharedData.formData.selectedDate }"
+        ng-repeat="date in SharedResource.sharedData.trip.dates track by $index"
+        ng-if="SharedResource.sharedData.trip.dates"
+        ng-click="changeDate(date)">
+
+        <label>
+
+            <span class="date-selector-date-wrapper">
+
+                <span class="date-selector-month">
+                    {{ date.from.month }}
+                </span>  
+
+                <span class="date-selector-day">
+                    {{ date.from.date }}
+                </span>            
+
+                <span class="date-selector-year">
+                    {{ date.from.year }}
+                </span>
+
+            </span>
+
+            <span class="date-selector-divider">
+
+                <span class="date-selector-arrow">
+                    &#10140;
+                </span> 
+                 
+            </span>
+
+            <span class="date-selector-date-wrapper">
+
+                <span class="date-selector-month">
+                    {{ date.to.month }}
+                </span>  
+
+                <span class="date-selector-day">
+                    {{ date.to.date }}
+                </span>            
+
+                <span class="date-selector-year">
+                    {{ date.to.year }}
+                </span>
+
+            </span>
+
+            <span class="date-selector-date-message">
+
+                <span class="warning" ng-if="date.soldOut">
+                    SOLD OUT FOR GROUPS
+                </span>
+
+                <span class="general-info" ng-if="date.limited">
+                    LIMITED AVAILABILITY
+                </span>
+
+            </span>
+
+            <input
+                class="float-right"
+                type="radio"
+                ng-value="date"
+                ng-model="SharedResource.sharedData.formData.selectedDate" />
+
+        </label>
+
+    </div>
+
+</div>

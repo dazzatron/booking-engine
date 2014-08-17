@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html ng-app="jmdApp" ng-cloak class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Booking Engine - Joe Darrington</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link href="css/main.min.css" rel="stylesheet" />
+    <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+
+<body ng-controller="jmdBookingEngineController">
+
+    <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+<!--    {{ SharedResource.sharedData }}-->
+    
+    <div ng-if="SharedResource.sharedData.reloading" class="page-mask">
+
+        <span>
+            <h2 ng-if="!SharedResource.sharedData.trip">AngularJS holiday booking system</h2>
+            <h1>Loading trip...</h1>
+            <img src="/img/ajax-loader.gif" />
+        </span>
+
+    </div>
+
+    <div ng-show="SharedResource.sharedData.trip" ng-class="{ active: SharedResource.sharedData.trip }" class="page-wrapper clearfix">
+
+        <div class="clearfix top-links">
+
+            <a class="float-left" href="/index.html">
+                &larr; back to joedarrington.com
+            </a>    
+        
+            <a class="float-right" href="/">
+                view code for page on github
+            </a>
+
+        </div>
+
+        <div class="booking-engine-header">
+            <h1 class="booking-engine-title">BOOK A JOURNEY TO {{ SharedResource.sharedData.trip.country }}</h1>
+            <img ng-src="{{ SharedResource.sharedData.trip.headerImage }}" />
+        </div>
+
+        <div class="col-main">
+
+            <div id="pagination" ng-include="'app/templates/pagination/pagination.html'"></div>
+
+            <section class="booking-engine-page" ng-if="SharedResource.sharedData.currentPage == 1">
+
+                <article id="trip-selector" ng-include="'app/templates/trip-selector/trip-selector.html'"></article>
+                <article id="date-selector" ng-include="'app/templates/date-selector/date-selector.html'"></article>
+                <article id="room-selector" ng-include="'app/templates/room-selector/room-selector.html'"></article>
+
+            </section>
+
+            <section class="booking-engine-page" ng-if="SharedResource.sharedData.currentPage !== 1">
+                <article id="Article1" ng-include="'app/templates/pre-trip-selector/pre-trip-selector.html'"></article><br />
+                <article id="Article2" ng-include="'app/templates/extra-selector/extra-selector.html'"></article><br />
+                <a class="general-action-2" href="" ng-click="SharedResource.sharedData.currentPage = 1">BACK</a>
+            </section>
+
+        </div>
+
+        <div class="col-summary">
+            <div ng-include="'app/templates/booking-summary/booking-summary.html'"></div>
+        </div>
+
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+
+    <script src="/js/vendor/angular.min.js"></script>
+    <script src="/js/vendor/angular-animate.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/templates/templates.js"></script>
+    <script src="app/filters/booking-engine.js"></script>
+    <script src="app/services/resources.js"></script>
+    <script src="app/controllers/booking-engine.js"></script>
+    <script src="app/controllers/pagination.js"></script>
+    <script src="app/controllers/trip-selector.js"></script>
+    <script src="app/controllers/date-selector.js"></script>
+    <script src="app/controllers/room-selector.js"></script>
+
+</body>
+
+</html>
