@@ -188,7 +188,7 @@ angular.module('jmdApp').run(['$templateCache', function($templateCache) {
     "\n" +
     "\r" +
     "\n" +
-    "    <div class=\"clearfix\">\r" +
+    "<!--    <div class=\"clearfix\">\r" +
     "\n" +
     "\r" +
     "\n" +
@@ -206,7 +206,7 @@ angular.module('jmdApp').run(['$templateCache', function($templateCache) {
     "\n" +
     "\r" +
     "\n" +
-    "    <br />\r" +
+    "    <br />-->\r" +
     "\n" +
     "\r" +
     "\n" +
