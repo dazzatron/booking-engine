@@ -14,6 +14,7 @@ describe('controller: date selector', function () {
         SharedResource.sharedData = {};
         SharedResource.sharedData.trip = {};
 
+
         SharedResource.sharedData.trip.dates = [
             {
                 id: 1,
