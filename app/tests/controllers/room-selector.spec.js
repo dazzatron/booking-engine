@@ -18,7 +18,6 @@ describe('controller: room selector', function () {
         SharedResource.sharedData.trip = {};
 
         SharedResource.sharedData.formData = {};
-
         SharedResource.sharedData.trip.roomWordingOptions = [
             { "id": 1, "name": "Two Double", "adults": 2, "adultOptions": [1, 2, 3, 4], "children": 2, "childOptions": [0, 1, 2, 3], "maxPeople": 4, "perAdult": 2000.00, "perChild": 900 },
             { "id": 2, "name": "Two Single", "adults": 1, "adultOptions": [1, 2], "children": 0, "childOptions": [0, 1], "maxPeople": 2, "perAdult": 1200, "perChild": 900 }
