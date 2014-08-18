@@ -9,25 +9,21 @@
 
         var formData = $scope.SharedResource.sharedData.formData;
 
-        //if (formData) {
+        // empty rooms array to store rooms added.
+        formData.rooms = formData.rooms || [];
 
-            // empty rooms array to store rooms added.
-            formData.rooms = formData.rooms || [];
+        // push a copy of the original
+        formData.rooms.push(angular.copy($scope.SharedResource.sharedData.trip.roomWordingOptions));
 
-            // push a copy of the original
-            formData.rooms.push(angular.copy($scope.SharedResource.sharedData.trip.roomWordingOptions));
+        // set the default as the first room
+        formData.rooms[formData.rooms.length - 1].selectedRoom = formData.rooms[formData.rooms.length - 1][0];
 
-            // set the default as the first room
-            formData.rooms[formData.rooms.length - 1].selectedRoom = formData.rooms[formData.rooms.length - 1][0];
-
-            // shift page down
-            if (!init) {
-                $("html, body").animate({
-                    scrollTop: $(document).height()
-                }, 500);
-            }
-
-        //}
+        // shift page down
+        if (!init) {
+            $("html, body").animate({
+                scrollTop: $(document).height()
+            }, 500);
+        }
 
     };
 
@@ -40,16 +36,9 @@
     $scope.$watch('SharedResource.sharedData.trip.roomWordingOptions',
 
         function (newValue, oldValue) {
-
-            //if (newValue !== null && newValue !== oldValue) {
-
-                //add room by default, if there are none.
-                //if (!$scope.SharedResource.sharedData.formData.rooms) {
-                    $scope.addRoom(true);
-                //}
-
-            //}
-
+            if (newValue !== undefined && newValue !== oldValue) {
+                $scope.addRoom(true);
+            }
         }, true);
 
     // watcher to create total
@@ -83,6 +72,5 @@
         }
 
     }, true);
-
 
 }]);
