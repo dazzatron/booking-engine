@@ -59,20 +59,6 @@
         }
     },
     {
-        "id": 3,
-        "soldOut": true,
-        "from": {
-            "date": "24",
-            "month": "may",
-            "year": "2015"
-        },
-        "to": {
-            "date": "31",
-            "month": "may",
-            "year": "2015"
-        }
-    },
-    {
         "id": 4,
         "from": {
             "date": "31",

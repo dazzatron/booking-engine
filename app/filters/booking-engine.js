@@ -4,11 +4,15 @@
 
     return function (input) {
 
-        var currency = SharedResource.sharedData.selectedCurrency;
+        //if (input) {
 
-        if (currency) {
-            return currency.symbol + $filter('number')(Number(input * currency.rate));
-        }
+            var currency = SharedResource.sharedData.selectedCurrency;
+
+            if (currency) {
+                return currency.symbol + $filter('number')(Number(input * currency.rate));
+            }
+
+        //}
 
     };
 

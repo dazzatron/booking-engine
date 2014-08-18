@@ -4,7 +4,7 @@
 
     // object to hold data over the entire application. 
     var sharedData = {};
-    sharedData.currentPage = 1;
+    sharedData.currentPage = 1; // add watcher to scroll page
 
     goToPage = function (page) {
         sharedData.currentPage = page;
@@ -12,7 +12,7 @@
 
     formatCountryTrips = function (data) {
 
-        angular.forEach(data.countries, function (country) {
+        angular.forEach(data.countries, function (country) { // change this for a non angular loop pls!
 
             // select current country
             if (country.name === sharedData.trip.country) {
@@ -20,7 +20,7 @@
                 data.selectedCountry = country;
 
                 // select current trip
-                angular.forEach(country.trips, function (trip) {
+                angular.forEach(country.trips, function (trip) { // change this for a non angular loop pls!
 
                     if (trip === sharedData.trip.name) {
                         country.selectedTrip = trip;

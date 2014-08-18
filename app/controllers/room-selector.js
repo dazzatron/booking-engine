@@ -46,27 +46,23 @@
 
         if (newValue !== undefined && newValue !== oldValue) {
 
-            if ($scope.SharedResource.sharedData.formData) {
+            var totalGuests = 0;
+            var totalGuestCost = 0;
 
-                var totalGuests = 0;
-                var totalGuestCost = 0;
+            for (var i = 0, length = $scope.SharedResource.sharedData.formData.rooms.length; i < length; i++) {
+                var currentRoom = $scope.SharedResource.sharedData.formData.rooms[i].selectedRoom;
+                totalGuests += currentRoom.adults + currentRoom.children;
+                totalGuestCost += currentRoom.adults * currentRoom.perAdult;
+                totalGuestCost += currentRoom.children * currentRoom.perChild;
+            }
 
-                for (var i = 0, length = $scope.SharedResource.sharedData.formData.rooms.length; i < length; i++) {
-                    var currentRoom = $scope.SharedResource.sharedData.formData.rooms[i].selectedRoom;
-                    totalGuests += currentRoom.adults + currentRoom.children;
-                    totalGuestCost += currentRoom.adults * currentRoom.perAdult;
-                    totalGuestCost += currentRoom.children * currentRoom.perChild;
-                }
+            $scope.SharedResource.sharedData.formData.totalGuests = totalGuests;
+            $scope.SharedResource.sharedData.formData.totalGuestCost = totalGuestCost;
 
-                $scope.SharedResource.sharedData.formData.totalGuests = totalGuests;
-                $scope.SharedResource.sharedData.formData.totalGuestCost = totalGuestCost;
-
-                if (totalGuests > $scope.SharedResource.sharedData.trip.maxGroupSize) {
-                    $("html, body").animate({
-                        scrollTop: $(document).height()
-                    }, 500);
-                }
-
+            if (totalGuests > $scope.SharedResource.sharedData.trip.maxGroupSize) {
+                $("html, body").animate({
+                    scrollTop: $(document).height()
+                }, 500);
             }
 
         }
