@@ -87,18 +87,20 @@
     }
 
     ],
-    "preTrips": [
+    "tours": [
         {
+			"type": "pre",
             "title": "chilean wine tour",
             "image": "/img/china.jpg",
             "days": 4,
             "perPerson": 1000
         },
-        {
-            "title": "chilean wine tour 2",
-            "image": "/img/china.jpg",
-            "days": 4,
-            "perPerson": 1000
+		{
+			"type": "post",
+            "title": "easter island tour",
+            "image": "/img/easter-island.jpg",
+            "days": 6,
+            "perPerson": 2000
         }
     ]
 

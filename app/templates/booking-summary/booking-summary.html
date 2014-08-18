@@ -9,59 +9,195 @@
 
     <h1>SUMMARY</h1>
 
-    <h2>{{ SharedResource.sharedData.trip.name }}
-    </h2>
+    <!--pre trips-->
+    <div class="clearfix fade" ng-if="SharedResource.sharedData.formData.tours" ng-repeat="tour in SharedResource.sharedData.formData.tours">
 
-    <div class="clearfix">
+        <div ng-if="tour.type === 'pre'">
 
-        <div class="booking-summary-date-wrapper">
+            <br />
+            <i>Pre Trip Tour:</i> 
+            <h2> {{ tour.title }}
+            </h2>
 
-            <span class="booking-summary-month">{{ SharedResource.sharedData.formData.selectedDate.from.month }}
-            </span>
+            <div class="booking-summary-date-wrapper">
 
-            <span class="booking-summary-day">{{ SharedResource.sharedData.formData.selectedDate.from.date }}
-            </span>
+                <span class="booking-summary-month">{{ SharedResource.sharedData.formData.selectedDate.from.month }}
+                </span>
 
-            <span class="booking-summary-year">{{ SharedResource.sharedData.formData.selectedDate.from.year }}
-            </span>
+                <span class="booking-summary-day">{{ SharedResource.sharedData.formData.selectedDate.from.date - tour.days }}
+                </span>
 
-        </div>
+                <span class="booking-summary-year">{{ SharedResource.sharedData.formData.selectedDate.from.year }}
+                </span>
 
-        <div class="booking-summary-divider">
-            <span class="booking-summary-arrow">&#10140;
-            </span>
-        </div>
+            </div>
 
-        <div class="booking-summary-date-wrapper">
+            <div class="booking-summary-divider">
+                <span class="booking-summary-arrow">&#10140;
+                </span>
+            </div>
 
-            <span class="booking-summary-month">{{ SharedResource.sharedData.formData.selectedDate.to.month }}
-            </span>
+            <div class="booking-summary-date-wrapper">
 
-            <span class="booking-summary-day">{{ SharedResource.sharedData.formData.selectedDate.to.date }}
-            </span>
+                <span class="booking-summary-month">{{ SharedResource.sharedData.formData.selectedDate.from.month }}
+                </span>
 
-            <span class="booking-summary-year">{{ SharedResource.sharedData.formData.selectedDate.to.year }}
-            </span>
+                <span class="booking-summary-day">{{ SharedResource.sharedData.formData.selectedDate.from.date }}
+                </span>
+
+                <span class="booking-summary-year">{{ SharedResource.sharedData.formData.selectedDate.from.year }}
+                </span>
+
+            </div>
+
+            <br />
+            <br />
+
+            <hr />
+
+            <div class="clearfix">
+
+                <div class="float-left">
+                    {{ SharedResource.sharedData.formData.totalGuests }} guest<span ng-if="SharedResource.sharedData.formData.totalGuests !== 1">s</span>
+                </div>
+
+                <div class="float-right">
+                    {{ tour.perPerson * SharedResource.sharedData.formData.totalGuests | currency }}
+                </div>
+
+            </div>
+
+            <hr />
 
         </div>
 
     </div>
 
-    <hr />
-
     <div class="clearfix">
 
-        <div class="float-left">
-            {{ SharedResource.sharedData.formData.totalGuests }} guest<span ng-if="SharedResource.sharedData.formData.totalGuests !== 1">s</span>
+        <br />
+        <h2>{{ SharedResource.sharedData.trip.name }}
+        </h2>        
+
+        <div class="clearfix">
+
+            <div class="booking-summary-date-wrapper">
+
+                <span class="booking-summary-month">{{ SharedResource.sharedData.formData.selectedDate.from.month }}
+                </span>
+
+                <span class="booking-summary-day">{{ SharedResource.sharedData.formData.selectedDate.from.date }}
+                </span>
+
+                <span class="booking-summary-year">{{ SharedResource.sharedData.formData.selectedDate.from.year }}
+                </span>
+
+            </div>
+
+            <div class="booking-summary-divider">
+                <span class="booking-summary-arrow">&#10140;
+                </span>
+            </div>
+
+            <div class="booking-summary-date-wrapper">
+
+                <span class="booking-summary-month">{{ SharedResource.sharedData.formData.selectedDate.to.month }}
+                </span>
+
+                <span class="booking-summary-day">{{ SharedResource.sharedData.formData.selectedDate.to.date }}
+                </span>
+
+                <span class="booking-summary-year">{{ SharedResource.sharedData.formData.selectedDate.to.year }}
+                </span>
+
+            </div>
+
         </div>
 
-        <div class="float-right">
-            {{ SharedResource.sharedData.formData.totalGuestCost | currency }}
+        <hr />
+
+        <div class="clearfix">
+
+            <div class="float-left">
+                {{ SharedResource.sharedData.formData.totalGuests }} guest<span ng-if="SharedResource.sharedData.formData.totalGuests !== 1">s</span>
+            </div>
+
+            <div class="float-right">
+                {{ SharedResource.sharedData.formData.totalGuestCost | currency }}
+            </div>
+
+        </div>
+
+        <hr />
+
+    </div>
+
+
+    <!--post trips-->
+    <div class="clearfix fade" ng-if="SharedResource.sharedData.formData.tours" ng-repeat="tour in SharedResource.sharedData.formData.tours">
+
+        <div ng-if="tour.type === 'post'">
+
+            <br />
+            <i>Post Trip Tour:</i>
+            <h2>{{ tour.title }}
+            </h2>
+
+            <div class="booking-summary-date-wrapper">
+
+                <span class="booking-summary-month">{{ SharedResource.sharedData.formData.selectedDate.to.month }}
+                </span>
+
+                <span class="booking-summary-day">{{ SharedResource.sharedData.formData.selectedDate.to.date }}
+                </span>
+
+                <span class="booking-summary-year">{{ SharedResource.sharedData.formData.selectedDate.to.year }}
+                </span>
+
+            </div>
+
+            <div class="booking-summary-divider">
+                <span class="booking-summary-arrow">&#10140;
+                </span>
+            </div>
+
+            <div class="booking-summary-date-wrapper">
+
+                <span class="booking-summary-month">{{ SharedResource.sharedData.formData.selectedDate.to.month }}
+                </span>
+
+                <span class="booking-summary-day">{{ (SharedResource.sharedData.formData.selectedDate.to.date - 0 + tour.days) }}
+                </span>
+
+                <span class="booking-summary-year">{{ SharedResource.sharedData.formData.selectedDate.to.year }}
+                </span>
+
+            </div>
+
+            <br />
+            <br />
+
+            <hr />
+
+            <div class="clearfix">
+
+                <div class="float-left">
+                    {{ SharedResource.sharedData.formData.totalGuests }} guest<span ng-if="SharedResource.sharedData.formData.totalGuests !== 1">s</span>
+                </div>
+
+                <div class="float-right">
+                    {{ tour.perPerson * SharedResource.sharedData.formData.totalGuests | currency }}
+                </div>
+
+            </div>
+
+            <hr />
+
         </div>
 
     </div>
 
-    <hr />
+    <br />
 
     <div class="clearfix">
 
@@ -91,25 +227,25 @@
 
     <br />
 
-<!--    <div class="clearfix">
+    <div class="clearfix">
 
-        <a href="" ng-if="SharedResource.sharedData.currentPage < 5" 
+        <a href="" ng-if="SharedResource.sharedData.currentPage < 5"
             ng-click="SharedResource.sharedData.currentPage = SharedResource.sharedData.currentPage+1"
             class="call-to-action float-right">CONTINUE &#10140;
         </a>
 
     </div>
 
-    <br />-->
+<!--    <br />
 
-<!--    <a class="general-action" href="">TERMS AND CONDITIONS
+    <a class="general-action" href="">TERMS AND CONDITIONS
     </a>
 
-    <br />
+    <br /><br />
 
     <b class="general-info">Total price includes all taxes</b>
 
-    <br />
+    <br /><br />
 
     Payment by debit card is free-->
 

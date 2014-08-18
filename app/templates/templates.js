@@ -24,71 +24,123 @@ angular.module('jmdApp').run(['$templateCache', function($templateCache) {
     "\n" +
     "\r" +
     "\n" +
-    "    <h2>{{ SharedResource.sharedData.trip.name }}\r" +
+    "    <!--pre trips-->\r" +
     "\n" +
-    "    </h2>\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "    <div class=\"clearfix\">\r" +
+    "    <div class=\"clearfix fade\" ng-if=\"SharedResource.sharedData.formData.tours\" ng-repeat=\"tour in SharedResource.sharedData.formData.tours\">\r" +
     "\n" +
     "\r" +
     "\n" +
-    "        <div class=\"booking-summary-date-wrapper\">\r" +
+    "        <div ng-if=\"tour.type === 'pre'\">\r" +
     "\n" +
     "\r" +
     "\n" +
-    "            <span class=\"booking-summary-month\">{{ SharedResource.sharedData.formData.selectedDate.from.month }}\r" +
+    "            <br />\r" +
     "\n" +
-    "            </span>\r" +
+    "            <i>Pre Trip Tour:</i> \r" +
     "\n" +
-    "\r" +
+    "            <h2> {{ tour.title }}\r" +
     "\n" +
-    "            <span class=\"booking-summary-day\">{{ SharedResource.sharedData.formData.selectedDate.from.date }}\r" +
-    "\n" +
-    "            </span>\r" +
+    "            </h2>\r" +
     "\n" +
     "\r" +
     "\n" +
-    "            <span class=\"booking-summary-year\">{{ SharedResource.sharedData.formData.selectedDate.from.year }}\r" +
-    "\n" +
-    "            </span>\r" +
+    "            <div class=\"booking-summary-date-wrapper\">\r" +
     "\n" +
     "\r" +
     "\n" +
-    "        </div>\r" +
+    "                <span class=\"booking-summary-month\">{{ SharedResource.sharedData.formData.selectedDate.from.month }}\r" +
+    "\n" +
+    "                </span>\r" +
     "\n" +
     "\r" +
     "\n" +
-    "        <div class=\"booking-summary-divider\">\r" +
+    "                <span class=\"booking-summary-day\">{{ SharedResource.sharedData.formData.selectedDate.from.date - tour.days }}\r" +
     "\n" +
-    "            <span class=\"booking-summary-arrow\">&#10140;\r" +
-    "\n" +
-    "            </span>\r" +
-    "\n" +
-    "        </div>\r" +
+    "                </span>\r" +
     "\n" +
     "\r" +
     "\n" +
-    "        <div class=\"booking-summary-date-wrapper\">\r" +
+    "                <span class=\"booking-summary-year\">{{ SharedResource.sharedData.formData.selectedDate.from.year }}\r" +
+    "\n" +
+    "                </span>\r" +
     "\n" +
     "\r" +
     "\n" +
-    "            <span class=\"booking-summary-month\">{{ SharedResource.sharedData.formData.selectedDate.to.month }}\r" +
-    "\n" +
-    "            </span>\r" +
+    "            </div>\r" +
     "\n" +
     "\r" +
     "\n" +
-    "            <span class=\"booking-summary-day\">{{ SharedResource.sharedData.formData.selectedDate.to.date }}\r" +
+    "            <div class=\"booking-summary-divider\">\r" +
     "\n" +
-    "            </span>\r" +
+    "                <span class=\"booking-summary-arrow\">&#10140;\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "            </div>\r" +
     "\n" +
     "\r" +
     "\n" +
-    "            <span class=\"booking-summary-year\">{{ SharedResource.sharedData.formData.selectedDate.to.year }}\r" +
+    "            <div class=\"booking-summary-date-wrapper\">\r" +
     "\n" +
-    "            </span>\r" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-month\">{{ SharedResource.sharedData.formData.selectedDate.from.month }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-day\">{{ SharedResource.sharedData.formData.selectedDate.from.date }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-year\">{{ SharedResource.sharedData.formData.selectedDate.from.year }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <br />\r" +
+    "\n" +
+    "            <br />\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <hr />\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <div class=\"clearfix\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <div class=\"float-left\">\r" +
+    "\n" +
+    "                    {{ SharedResource.sharedData.formData.totalGuests }} guest<span ng-if=\"SharedResource.sharedData.formData.totalGuests !== 1\">s</span>\r" +
+    "\n" +
+    "                </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <div class=\"float-right\">\r" +
+    "\n" +
+    "                    {{ tour.perPerson * SharedResource.sharedData.formData.totalGuests | currency }}\r" +
+    "\n" +
+    "                </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <hr />\r" +
     "\n" +
     "\r" +
     "\n" +
@@ -100,25 +152,245 @@ angular.module('jmdApp').run(['$templateCache', function($templateCache) {
     "\n" +
     "\r" +
     "\n" +
-    "    <hr />\r" +
-    "\n" +
-    "\r" +
-    "\n" +
     "    <div class=\"clearfix\">\r" +
     "\n" +
     "\r" +
     "\n" +
-    "        <div class=\"float-left\">\r" +
+    "        <br />\r" +
     "\n" +
-    "            {{ SharedResource.sharedData.formData.totalGuests }} guest<span ng-if=\"SharedResource.sharedData.formData.totalGuests !== 1\">s</span>\r" +
+    "        <h2>{{ SharedResource.sharedData.trip.name }}\r" +
+    "\n" +
+    "        </h2>        \r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "        <div class=\"clearfix\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <div class=\"booking-summary-date-wrapper\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-month\">{{ SharedResource.sharedData.formData.selectedDate.from.month }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-day\">{{ SharedResource.sharedData.formData.selectedDate.from.date }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-year\">{{ SharedResource.sharedData.formData.selectedDate.from.year }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <div class=\"booking-summary-divider\">\r" +
+    "\n" +
+    "                <span class=\"booking-summary-arrow\">&#10140;\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "            </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <div class=\"booking-summary-date-wrapper\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-month\">{{ SharedResource.sharedData.formData.selectedDate.to.month }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-day\">{{ SharedResource.sharedData.formData.selectedDate.to.date }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-year\">{{ SharedResource.sharedData.formData.selectedDate.to.year }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            </div>\r" +
+    "\n" +
+    "\r" +
     "\n" +
     "        </div>\r" +
     "\n" +
     "\r" +
     "\n" +
-    "        <div class=\"float-right\">\r" +
+    "        <hr />\r" +
     "\n" +
-    "            {{ SharedResource.sharedData.formData.totalGuestCost | currency }}\r" +
+    "\r" +
+    "\n" +
+    "        <div class=\"clearfix\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <div class=\"float-left\">\r" +
+    "\n" +
+    "                {{ SharedResource.sharedData.formData.totalGuests }} guest<span ng-if=\"SharedResource.sharedData.formData.totalGuests !== 1\">s</span>\r" +
+    "\n" +
+    "            </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <div class=\"float-right\">\r" +
+    "\n" +
+    "                {{ SharedResource.sharedData.formData.totalGuestCost | currency }}\r" +
+    "\n" +
+    "            </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "        </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "        <hr />\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "    </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "    <!--post trips-->\r" +
+    "\n" +
+    "    <div class=\"clearfix fade\" ng-if=\"SharedResource.sharedData.formData.tours\" ng-repeat=\"tour in SharedResource.sharedData.formData.tours\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "        <div ng-if=\"tour.type === 'post'\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <br />\r" +
+    "\n" +
+    "            <i>Post Trip Tour:</i>\r" +
+    "\n" +
+    "            <h2>{{ tour.title }}\r" +
+    "\n" +
+    "            </h2>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <div class=\"booking-summary-date-wrapper\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-month\">{{ SharedResource.sharedData.formData.selectedDate.to.month }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-day\">{{ SharedResource.sharedData.formData.selectedDate.to.date }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-year\">{{ SharedResource.sharedData.formData.selectedDate.to.year }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <div class=\"booking-summary-divider\">\r" +
+    "\n" +
+    "                <span class=\"booking-summary-arrow\">&#10140;\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "            </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <div class=\"booking-summary-date-wrapper\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-month\">{{ SharedResource.sharedData.formData.selectedDate.to.month }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-day\">{{ (SharedResource.sharedData.formData.selectedDate.to.date - 0 + tour.days) }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span class=\"booking-summary-year\">{{ SharedResource.sharedData.formData.selectedDate.to.year }}\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <br />\r" +
+    "\n" +
+    "            <br />\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <hr />\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <div class=\"clearfix\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <div class=\"float-left\">\r" +
+    "\n" +
+    "                    {{ SharedResource.sharedData.formData.totalGuests }} guest<span ng-if=\"SharedResource.sharedData.formData.totalGuests !== 1\">s</span>\r" +
+    "\n" +
+    "                </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <div class=\"float-right\">\r" +
+    "\n" +
+    "                    {{ tour.perPerson * SharedResource.sharedData.formData.totalGuests | currency }}\r" +
+    "\n" +
+    "                </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <hr />\r" +
+    "\n" +
+    "\r" +
     "\n" +
     "        </div>\r" +
     "\n" +
@@ -128,7 +400,7 @@ angular.module('jmdApp').run(['$templateCache', function($templateCache) {
     "\n" +
     "\r" +
     "\n" +
-    "    <hr />\r" +
+    "    <br />\r" +
     "\n" +
     "\r" +
     "\n" +
@@ -188,11 +460,11 @@ angular.module('jmdApp').run(['$templateCache', function($templateCache) {
     "\n" +
     "\r" +
     "\n" +
-    "<!--    <div class=\"clearfix\">\r" +
+    "    <div class=\"clearfix\">\r" +
     "\n" +
     "\r" +
     "\n" +
-    "        <a href=\"\" ng-if=\"SharedResource.sharedData.currentPage < 5\" \r" +
+    "        <a href=\"\" ng-if=\"SharedResource.sharedData.currentPage < 5\"\r" +
     "\n" +
     "            ng-click=\"SharedResource.sharedData.currentPage = SharedResource.sharedData.currentPage+1\"\r" +
     "\n" +
@@ -206,17 +478,17 @@ angular.module('jmdApp').run(['$templateCache', function($templateCache) {
     "\n" +
     "\r" +
     "\n" +
-    "    <br />-->\r" +
+    "<!--    <br />\r" +
     "\n" +
     "\r" +
     "\n" +
-    "<!--    <a class=\"general-action\" href=\"\">TERMS AND CONDITIONS\r" +
+    "    <a class=\"general-action\" href=\"\">TERMS AND CONDITIONS\r" +
     "\n" +
     "    </a>\r" +
     "\n" +
     "\r" +
     "\n" +
-    "    <br />\r" +
+    "    <br /><br />\r" +
     "\n" +
     "\r" +
     "\n" +
@@ -224,7 +496,7 @@ angular.module('jmdApp').run(['$templateCache', function($templateCache) {
     "\n" +
     "\r" +
     "\n" +
-    "    <br />\r" +
+    "    <br /><br />\r" +
     "\n" +
     "\r" +
     "\n" +
@@ -398,7 +670,7 @@ angular.module('jmdApp').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('app/templates/extra-selector/extra-selector.html',
-    "<div>\r" +
+    "<div ng-controller=\"extraSelectorCtrl\" ng-if=\"SharedResource.sharedData.trip.extras\">\r" +
     "\n" +
     "\r" +
     "\n" +
@@ -406,7 +678,7 @@ angular.module('jmdApp').run(['$templateCache', function($templateCache) {
     "\n" +
     "    \r" +
     "\n" +
-    "    <div class=\"pre-trip-wrapper clearfix\" ng-repeat=\"extra in extras\">\r" +
+    "    <div class=\"pre-trip-wrapper clearfix\" ng-repeat=\"extra in SharedResource.sharedData.trip.extras\">\r" +
     "\n" +
     "\r" +
     "\n" +
@@ -494,159 +766,6 @@ angular.module('jmdApp').run(['$templateCache', function($templateCache) {
     "        {{ page.label }}\r" +
     "\n" +
     "    </button>\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "</div>"
-  );
-
-
-  $templateCache.put('app/templates/pre-trip-selector/pre-trip-selector.html',
-    "<div>\r" +
-    "\n" +
-    "    \r" +
-    "\n" +
-    "    <div class=\"pre-trip-wrapper clearfix\" ng-repeat=\"preTrip in SharedResource.trip.preTrips\">\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "        <div class=\"pre-trip-image\">\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "            <h2>PRE-TRIP TOUR</h2>\r" +
-    "\n" +
-    "            <h3>Enhance the start of your trip</h3>\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "            <img ng-src=\"{{ preTrip.image }}\" />\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "        </div>\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "        <div class=\"pre-trip-details\">\r" +
-    "\n" +
-    "            \r" +
-    "\n" +
-    "            <h2>{{ preTrip.title }}</h2>\r" +
-    "\n" +
-    "            {{ preTrip.days }} days<br />\r" +
-    "\n" +
-    "            <br />\r" +
-    "\n" +
-    "            Per person: {{ preTrip.perPerson | currency }}<br />\r" +
-    "\n" +
-    "            Total for all 8 travellers: €8,000.00 \r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "            <br /><br />\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "            <div class=\"clearfix\">\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "            <button ng-click=\"addPreTrip(preTrip)\" class=\"float-right general-action-2\">\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "                <span ng-if=\"!preTrip.selected\">\r" +
-    "\n" +
-    "                    ADD \r" +
-    "\n" +
-    "                </span>\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "                <span ng-if=\"preTrip.selected\">\r" +
-    "\n" +
-    "                    REMOVE \r" +
-    "\n" +
-    "                </span>\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "                TRIP\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "            </button>\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "            </div>\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "            <br />\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "            this is a test\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "            <br />\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "            <div class=\"slide-down\" ng-if=\"preTrip.showInformation\">\r" +
-    "\n" +
-    "                <br />\r" +
-    "\n" +
-    "                more info testermore info testermore info testermore info testermore info \r" +
-    "\n" +
-    "                testermore info testermore \r" +
-    "\n" +
-    "                info testermore info testermore info testermore info testermore info tester\r" +
-    "\n" +
-    "            </div>\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "            <br />\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "            <button ng-click=\"changeInformation(preTrip)\" class=\"general-action\">\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "                <span ng-if=\"preTrip.showInformation\">\r" +
-    "\n" +
-    "                    LESS\r" +
-    "\n" +
-    "                </span>\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "                <span ng-if=\"!preTrip.showInformation\">\r" +
-    "\n" +
-    "                    MORE\r" +
-    "\n" +
-    "                </span>\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "                INFORMATION\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "            </button>\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "        </div>\r" +
-    "\n" +
-    "\r" +
-    "\n" +
-    "    </div>\r" +
     "\n" +
     "\r" +
     "\n" +
@@ -891,6 +1010,187 @@ angular.module('jmdApp').run(['$templateCache', function($templateCache) {
     "\n" +
     "</div>\r" +
     "\n"
+  );
+
+
+  $templateCache.put('app/templates/tour-selector/tour-selector.html',
+    "<div ng-controller=\"tourSelectorCtrl\" ng-if=\"SharedResource.sharedData.trip.tours\">\r" +
+    "\n" +
+    "    \r" +
+    "\n" +
+    "    <div class=\"tour-wrapper clearfix\" ng-repeat=\"tour in SharedResource.sharedData.trip.tours\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "        <div class=\"tour-image\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <h2>{{ tour.type }}-TRIP TOUR</h2>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <h3>\r" +
+    "\n" +
+    "                \r" +
+    "\n" +
+    "                Enhance the \r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span ng-if=\"tour.type === 'pre'\">start</span>\r" +
+    "\n" +
+    "                <span ng-if=\"tour.type === 'post'\">end</span>\r" +
+    "\n" +
+    "                \r" +
+    "\n" +
+    "                of your trip\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            </h3>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <img ng-src=\"{{ tour.image }}\" />\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "        </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "        <div class=\"tour-details\">\r" +
+    "\n" +
+    "            \r" +
+    "\n" +
+    "            <h2>{{ tour.title }}</h2>\r" +
+    "\n" +
+    "            {{ tour.days }} days<br />\r" +
+    "\n" +
+    "            <br />\r" +
+    "\n" +
+    "            Per person: {{ tour.perPerson | currency }}<br />\r" +
+    "\n" +
+    "            Total for all {{ sharedResource.sharedData.formData.totalGuests }} travellers: \r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            {{ tour.perPerson * SharedResource.sharedData.formData.totalGuests | currency }}\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <br /><br />\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <div class=\"clearfix\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <button ng-click=\"changeTour(tour, tour.type, $index)\" class=\"float-right general-action-2\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span ng-if=\"!tour.selected\">\r" +
+    "\n" +
+    "                    ADD \r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span ng-if=\"tour.selected\">\r" +
+    "\n" +
+    "                    REMOVE \r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                TRIP \r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            </button>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <br />\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "<!--            this is a test\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <br />\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <div class=\"slide-down\" ng-if=\"tour.showInformation\">\r" +
+    "\n" +
+    "                <br />\r" +
+    "\n" +
+    "                more info testermore info testermore info testermore info testermore info \r" +
+    "\n" +
+    "                testermore info testermore \r" +
+    "\n" +
+    "                info testermore info testermore info testermore info testermore info tester\r" +
+    "\n" +
+    "            </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <br />\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            <button ng-click=\"changeInformation(trip)\" class=\"general-action\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span ng-if=\"tour.showInformation\">\r" +
+    "\n" +
+    "                    LESS\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                <span ng-if=\"!tour.showInformation\">\r" +
+    "\n" +
+    "                    MORE\r" +
+    "\n" +
+    "                </span>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "                INFORMATION\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "            </button>-->\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "        </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "    </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "    \r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "</div>"
   );
 
 

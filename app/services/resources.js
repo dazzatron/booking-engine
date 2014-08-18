@@ -70,8 +70,6 @@
         $("html, body").animate({ scrollTop: 0 }, 500);
         $location.path(data.trip.name.split(' ').join('-'));
         sharedData.reloading = false;
-
-        // move to currency controller?
         sharedData.currencies = data.currencies;
         sharedData.selectedCurrency = data.currencies[0];
 

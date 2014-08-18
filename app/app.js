@@ -6,6 +6,8 @@
    'jmd.tripSelector',
    'jmd.dateSelector',
    'jmd.roomSelector',
+   'jmd.tourSelector',
+   'jmd.extraSelector',
    'ngAnimate'
 ]);
 

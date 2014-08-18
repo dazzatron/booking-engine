@@ -21,12 +21,12 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
 
+<!--    {{ SharedResource.sharedData.formData.tours }}-->
+
     <noscript>
             <p class="chromeframe">Please enable JavaScript to use this site:<a href="http://www.enable-javascript.com/">here</a></p>
     </noscript>
-
-<!--    {{ SharedResource.sharedData }}-->
-    
+       
     <div ng-if="SharedResource.sharedData.reloading" class="page-mask">
 
         <span>
@@ -69,9 +69,14 @@
             </section>
 
             <section class="booking-engine-page" ng-if="SharedResource.sharedData.currentPage !== 1">
-                <article id="Article1" ng-include="'app/templates/pre-trip-selector/pre-trip-selector.html'"></article><br />
-                <article id="Article2" ng-include="'app/templates/extra-selector/extra-selector.html'"></article><br />
+
+                <article id="tour-selector" ng-include="'app/templates/tour-selector/tour-selector.html'">
+                </article><br />
+
+<!--            <article id="Article2" ng-include="'app/templates/extra-selector/extra-selector.html'"></article><br />-->
+
                 <a class="general-action-2" href="" ng-click="SharedResource.sharedData.currentPage = 1">BACK</a>
+
             </section>
 
         </div>
@@ -96,6 +101,8 @@
     <script src="app/controllers/trip-selector.js"></script>
     <script src="app/controllers/date-selector.js"></script>
     <script src="app/controllers/room-selector.js"></script>
+    <script src="app/controllers/tour-selector.js"></script>
+    <script src="app/controllers/extra-selector.js"></script>
 
 </body>
 

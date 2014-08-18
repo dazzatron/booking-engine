@@ -7,6 +7,6 @@
     $scope.SharedResource = SharedResource;
 
     //kick the whole thing off
-    $scope.SharedResource.getTrip($location.path().replace('/', ''))
+    $scope.SharedResource.getTrip($location.path().replace('/', ''));
 
 }]);

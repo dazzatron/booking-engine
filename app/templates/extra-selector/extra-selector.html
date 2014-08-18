@@ -1,8 +1,8 @@
-﻿<div>
+﻿<div ng-controller="extraSelectorCtrl" ng-if="SharedResource.sharedData.trip.extras">
 
     <h2>EXTRAS</h2>
     
-    <div class="pre-trip-wrapper clearfix" ng-repeat="extra in extras">
+    <div class="pre-trip-wrapper clearfix" ng-repeat="extra in SharedResource.sharedData.trip.extras">
 
         <div class="pre-trip-image">
 

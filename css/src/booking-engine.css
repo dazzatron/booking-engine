@@ -188,11 +188,13 @@ hr {
     font-size:16px;
     text-align:center;
     padding:2px 0;
+    margin-bottom:0;
 }
 
 .col-summary h2 {
     font-size:16px;
     text-transform:capitalize;
+    margin:0;
 }
 
 .col-summary hr {
@@ -254,4 +256,20 @@ a:hover {
     background: -o-linear-gradient(left,  rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(left,  rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
     background: linear-gradient(to right,  rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 100%); /* W3C */
+}
+
+.fade.ng-enter, .fade.ng-leave-active {
+    -webkit-transition: all 1000ms, opacity 200ms;
+    transition: all 1000ms, opacity 200ms;
+    opacity:0;
+    -webkit-transform:translateY(-10px);
+    -moz-transform:translateY(-10px);
+    transform:translateY(-10px);
+}
+ 
+.fade.ng-enter-active, .fade.ng-leave {
+    opacity:1;
+    -webkit-transform:translateY(0);
+    -moz-transform:translateY(0);
+    transform:translateY(0);
 }
