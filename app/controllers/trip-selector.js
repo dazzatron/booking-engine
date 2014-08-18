@@ -1,8 +1,8 @@
 ﻿angular.module('jmd.tripSelector', [])
 
 .controller('jmdTripSelectorCtrl',
-['$scope', '$timeout', '$location', 'SharedResource',
-function ($scope, $timeout, $location, SharedResource) {
+['$scope', '$location', 'SharedResource',
+function ($scope, $location, SharedResource) {
 
     // reference to shared data
     $scope.SharedResource = SharedResource;
