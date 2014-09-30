@@ -28,8 +28,6 @@ describe('controller: date selector', function () {
             }
         ];
 
-        SharedResource.sharedData.formData = {};
-
         myScope = $rootScope.$new();
 
         jmdDateSelectorCtrl = $controller("jmdDateSelectorCtrl", {

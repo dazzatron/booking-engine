@@ -6,12 +6,11 @@
     <hr />
 
     <div class="date-selector-date"
-        ng-class="{ 'active': date === SharedResource.sharedData.formData.selectedDate }"
+        ng-class="{ 'active': date.selected }"
         ng-repeat="date in SharedResource.sharedData.trip.dates track by $index"
-        ng-if="SharedResource.sharedData.trip.dates"
         ng-click="changeDate(date)">
 
-        <label>
+<!--        <label>-->
 
             <span class="date-selector-date-wrapper">
 
@@ -65,13 +64,13 @@
 
             </span>
 
-            <input
+<!--            <input
                 class="float-right"
                 type="radio"
                 ng-value="date"
-                ng-model="SharedResource.sharedData.formData.selectedDate" />
+                ng-model="date.selected" />
 
-        </label>
+        </label>-->
 
     </div>
 

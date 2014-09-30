@@ -12,6 +12,18 @@
             }
         },
 
+        // min
+        uglify: {
+            minify: {
+                options: {
+                    sourceMap: true
+                },
+                files: {
+                    'main.min.js': ['app/app.js', 'app/controllers/*.js', 'app/directives/*.js', 'app/filters/*.js', 'app/services/*.js']
+                }
+            }
+        },
+
         // angular unit tests
         karma: {
             unit: {
@@ -48,28 +60,32 @@
                     livereload: true,
                 }
             },
-            ngtemplates: {
-                files: ['app/templates/**/*.html'],
-                tasks: ['ngtemplates'],
-                options: {
-                    livereload: true,
-                }
+            uglify: {
+                files: ['app/app.js', 'app/controllers/*.js', 'app/directives/*.js', 'app/filters/*.js', 'app/services/*.js'],
+                tasks: ['uglify']
             },
-            karma: {
-                files: ['app/**/*.js'],
-                //tasks: ['clear', 'karma'],
-                tasks: ['karma'],
-                options: {
-                    livereload: true,
-                }
-            }
+            //ngtemplates: {
+            //    files: ['app/templates/**/*.html'],
+            //    tasks: ['ngtemplates'],
+            //    options: {
+            //        livereload: true,
+            //    }
+            //},
+            //karma: {
+            //    files: ['app/**/*.js'],
+            //    //tasks: ['clear', 'karma'],
+            //    tasks: ['karma'],
+            //    options: {
+            //        livereload: true,
+            //    }
+            //}
         },
-
 
     });
 
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-angular-templates');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');

@@ -4,21 +4,64 @@
 
     $scope.SharedResource = SharedResource;
 
+    // something added/removed
+    $scope.$watch('SharedResource.sharedData.trip.rooms', function (newValue, oldValue) {
+
+        if (newValue) {
+
+            var totalGuests = 0;
+            var totalGuestCost = 0;
+
+            // create/clear guests array - should we clear this??
+            $scope.SharedResource.sharedData.trip.guests = [];
+
+            // loop to create totals/guest form etc
+            for (var i = 0, length = $scope.SharedResource.sharedData.trip.rooms.length; i < length; i++) {
+
+                var currentRoom = $scope.SharedResource.sharedData.trip.rooms[i].selectedRoom;
+
+                // calc max values
+                currentRoom.maxAdults = currentRoom.maxPeople - currentRoom.children;
+                currentRoom.maxChildren = currentRoom.maxPeople - currentRoom.adults;
+
+                currentRoom.totalGuests = currentRoom.adults + currentRoom.children; // for DOM
+
+                totalGuests += currentRoom.totalGuests;
+                totalGuestCost += currentRoom.adults * currentRoom.perAdult;
+                totalGuestCost += currentRoom.children * currentRoom.perChild;
+
+                // for the guests form
+                for (var a = 0, lengtha = currentRoom.adults; a < lengtha; a++) {
+                    $scope.SharedResource.sharedData.trip.guests.push({ 'title': 'Mr', 'type': 'adult' });
+                }
+                for (var b = 0, lengthb = currentRoom.children; b < lengthb; b++) {
+                    $scope.SharedResource.sharedData.trip.guests.push({ 'title': 'Mr', 'type': 'child' });
+                }
+
+            }
+
+            // create grand totals
+            $scope.SharedResource.sharedData.trip.totalGuests = totalGuests;
+            $scope.SharedResource.sharedData.trip.totalGuestCost = totalGuestCost;
+
+            // slide down to ensure error message shown
+            if (totalGuests > $scope.SharedResource.sharedData.trip.maxGroupSize) {
+                $("html, body").animate({
+                    scrollTop: $(document).height()
+                }, 500);
+            }
+
+        }
+
+    }, true);
+
     // function to add room
     $scope.addRoom = function (init) {
 
-        var formData = $scope.SharedResource.sharedData.formData;
+        var newRoomOptions = angular.copy($scope.SharedResource.sharedData.trip.roomOptions);
+        $scope.SharedResource.sharedData.trip.rooms.push({ roomOptions: newRoomOptions, selectedRoom: newRoomOptions[0] });
 
-        // empty rooms array to store rooms added.
-        formData.rooms = formData.rooms || [];
-
-        // push a copy of the original
-        formData.rooms.push(angular.copy($scope.SharedResource.sharedData.trip.roomWordingOptions));
-
-        // set the default as the first room
-        formData.rooms[formData.rooms.length - 1].selectedRoom = formData.rooms[formData.rooms.length - 1][0];
-
-        // shift page down
+        // shift page down if user clicks
         if (!init) {
             $("html, body").animate({
                 scrollTop: $(document).height()
@@ -29,44 +72,53 @@
 
     // remove room function
     $scope.removeRoom = function (index) {
-        $scope.SharedResource.sharedData.formData.rooms.splice(index, 1);
+        $scope.SharedResource.sharedData.trip.rooms.splice(index, 1);
     };
 
-    // new data from server
-    $scope.$watch('SharedResource.sharedData.trip.roomWordingOptions',
 
-        function (newValue, oldValue) {
-            if (newValue !== undefined && newValue !== oldValue) {
-                $scope.addRoom(true);
-            }
-        }, true);
+    $scope.init = function () {
 
-    // watcher to create total
-    $scope.$watch('SharedResource.sharedData.formData.rooms', function (newValue, oldValue) {
+        // empty rooms array to store rooms added.
+        $scope.SharedResource.sharedData.trip.rooms = [];
 
-        if (newValue !== undefined && newValue !== oldValue) {
+        // create values
+        for (var i = 0, length = $scope.SharedResource.sharedData.trip.roomOptions.length; i < length; i++) {
 
-            var totalGuests = 0;
-            var totalGuestCost = 0;
-
-            for (var i = 0, length = $scope.SharedResource.sharedData.formData.rooms.length; i < length; i++) {
-                var currentRoom = $scope.SharedResource.sharedData.formData.rooms[i].selectedRoom;
-                totalGuests += currentRoom.adults + currentRoom.children;
-                totalGuestCost += currentRoom.adults * currentRoom.perAdult;
-                totalGuestCost += currentRoom.children * currentRoom.perChild;
-            }
-
-            $scope.SharedResource.sharedData.formData.totalGuests = totalGuests;
-            $scope.SharedResource.sharedData.formData.totalGuestCost = totalGuestCost;
-
-            if (totalGuests > $scope.SharedResource.sharedData.trip.maxGroupSize) {
-                $("html, body").animate({
-                    scrollTop: $(document).height()
-                }, 500);
-            }
+            var currentRoomOptions = $scope.SharedResource.sharedData.trip.roomOptions[i];
+            currentRoomOptions.adults = 1;
+            currentRoomOptions.children = 0;
+            currentRoomOptions.maxAdults = currentRoomOptions.maxPeople;
+            currentRoomOptions.maxChildren = currentRoomOptions.maxPeople - 1;
 
         }
 
-    }, true);
+        // add room by default
+        $scope.addRoom(true);
+
+    };
+
+
+
+
+    // we already have data from server, but we havent created rooms
+    if ($scope.SharedResource.sharedData.trip && !$scope.SharedResource.sharedData.rooms) {
+
+        $scope.init();
+
+    // otherwise wait for server
+    } else {
+
+        // watch for new data from server
+        $scope.$watch('SharedResource.sharedData.trip.roomOptions',
+
+            function (newValue, oldValue) {
+
+                if (newValue && newValue !== oldValue) {
+                    $scope.init();
+                }
+
+            }, true);
+
+    }
 
 }]);

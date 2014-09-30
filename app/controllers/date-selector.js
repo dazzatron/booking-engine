@@ -7,18 +7,40 @@
 
     // function to change date
     $scope.changeDate = function (date) {
-        $scope.SharedResource.sharedData.formData.selectedDate = date;
+
+        // deselect all
+        for (var i = 0, length = SharedResource.sharedData.trip.dates.length; i < length; i++) {
+            SharedResource.sharedData.trip.dates[i].selected = false;
+        }
+
+        // select current
+        date.selected = true;
+
     };
 
-    // we get new data from server
-    $scope.$watch('SharedResource.sharedData.trip.dates',
+    $scope.init = function () {
+        // select first date
+        $scope.changeDate(SharedResource.sharedData.trip.dates[0]);
+    };
 
-        function (newValue, oldValue) {
+    // we already have data from server, but we havent formatted it
+    if ($scope.SharedResource.sharedData.trip && !$scope.SharedResource.sharedData.trip.dateSelected) {
 
-            if (newValue !== undefined && newValue !== oldValue) {
-                $scope.changeDate($scope.SharedResource.sharedData.trip.dates[0]);
-            }
+        $scope.init();
 
-        }, true);
+    } else {
+
+        // we get new data from server
+        $scope.$watch('SharedResource.sharedData.trip.dates',
+
+            function (newValue, oldValue) {
+
+                if (newValue && newValue !== oldValue) {
+                    $scope.init();
+                }
+
+            }, true);
+
+    }
 
 }]);

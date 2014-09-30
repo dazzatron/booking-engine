@@ -2,6 +2,8 @@
 
     <header class="rooms-header">
 
+        <br />
+
         <h1>rooms and guests</h1>
 
         <h2>PRICES BASED ON DOUBLE OCCUPANCY. SINGLE SUPPLEMENTS APPLY.
@@ -16,15 +18,15 @@
 
     <div class="rooms-body clearfix">
 
-        <div class="room-wrapper" ng-repeat="room in SharedResource.sharedData.formData.rooms track by $index">
+        <div class="room-wrapper" ng-repeat="room in SharedResource.sharedData.trip.rooms" ng-form="bookingform">
 
-            <div class="room-error-wrapper" ng-if="(room.selectedRoom.adults + room.selectedRoom.children) > room.selectedRoom.maxPeople">
+            <div class="room-error-wrapper" ng-if="room.selectedRoom.totalGuests > room.selectedRoom.maxPeople">
 
                 <div class="room-error">
                     <span>A maximum of<b> {{ room.selectedRoom.maxPeople }} </b>
         
                         <span ng-if="room.selectedRoom.maxPeople > 1"><b>guests</b> are</span> 
-                        <span ng-if="room.selectedRoom.maxPeople == 1"><b>guest</b> is</span> 
+                        <span ng-if="room.selectedRoom.maxPeople === 1"><b>guest</b> is</span> 
 
                         allowed in this room, please correct.
 
@@ -50,7 +52,7 @@
 
                     <select
                         ng-model="room.selectedRoom"
-                        ng-options="room as room.name for room in room">
+                        ng-options="room as room.name for room in room.roomOptions">
                     </select>
 
                 </div>
@@ -65,10 +67,16 @@
                     <br />
                     <br />
 
-                    <select
+                    <!--<select
                         ng-model="room.selectedRoom.adults"
                         ng-options="adults as adults for adults in room.selectedRoom.adultOptions">
-                    </select>
+                    </select>-->
+
+                    <input 
+                        ng-model="room.selectedRoom.adults" 
+                        type="number" 
+                        max="{{ room.selectedRoom.maxAdults }}" 
+                        min="1" />
 
                 </div>
 
@@ -82,10 +90,16 @@
                     <br />
                     <br />
 
-                    <select
+                    <!--<select
                         ng-model="room.selectedRoom.children"
                         ng-options="children as children for children in room.selectedRoom.childOptions">
-                    </select>
+                    </select>-->
+
+                    <input 
+                        ng-model="room.selectedRoom.children" 
+                        type="number"
+                        max="{{ room.selectedRoom.maxChildren }}" 
+                        min="0" />
 
                 </div>
 
@@ -99,17 +113,17 @@
 
         <div class="float-left">
 
-            <a href="" ng-if="SharedResource.sharedData.formData.totalGuests <= SharedResource.sharedData.trip.maxGroupSize" ng-click="addRoom()">
+            <a href="" ng-click="addRoom()">
                 <span class="room-add">+</span>ADD ANOTHER ROOM
             </a>
 
         </div>
 
         <div class="float-right">
-            TOTAL NUMBER OF GUESTS: <b>{{ SharedResource.sharedData.formData.totalGuests }}</b>
+            TOTAL NUMBER OF GUESTS: <b>{{ SharedResource.sharedData.trip.totalGuests }}</b>
         </div>
 
-        <div ng-if="SharedResource.sharedData.formData.totalGuests > SharedResource.sharedData.trip.maxGroupSize" class="room-guests-error">
+        <div ng-if="SharedResource.sharedData.trip.totalGuests > SharedResource.sharedData.trip.maxGroupSize" class="room-guests-error">
             A maximum of <b>{{ SharedResource.sharedData.trip.maxGroupSize }} guests</b> are allowed on this trip, please correct.
         </div>
 

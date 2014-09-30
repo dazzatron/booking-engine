@@ -4,12 +4,9 @@
 
     // object to hold data over the entire application. 
     var sharedData = {};
-    sharedData.currentPage = 1; // add watcher to scroll page
 
-    goToPage = function (page) {
-        sharedData.currentPage = page;
-    };
 
+    // to select another country/trip
     formatCountryTrips = function (data) {
 
         angular.forEach(data.countries, function (country) { // change this for a non angular loop pls!
@@ -48,19 +45,15 @@
         // scroll page to top
         $("html, body").animate({ scrollTop: 0 }, 500);
 
-        $timeout(function () {
-
-            $http({
-                method: 'GET',
-                url: 'app/json/country-trips.json'
-            }).success(function (data) {
-                formatCountryTrips(data);
-            }).error(function () {
-                // put in errors system
-                alert("Sorry, an error occurred");
-            });
-
-        }, 2000);
+        $http({
+            method: 'GET',
+            url: 'app/json/country-trips.json'
+        }).success(function (data) {
+            formatCountryTrips(data);
+        }).error(function () {
+            // put in errors system
+            alert("Sorry, an error occurred");
+        });
 
     };
 
@@ -68,43 +61,31 @@
     formatTripData = function (data) {
 
         $("html, body").animate({ scrollTop: 0 }, 500);
-        $location.path(data.trip.name.split(' ').join('-'));
+        $location.path(data.trip.name.split(' ').join('-') + '/select');
         sharedData.reloading = false;
         sharedData.currencies = data.currencies;
         sharedData.selectedCurrency = data.currencies[0];
-
-        // reset objects
-        sharedData.formData = {};
         sharedData.trip = data.trip;
 
     };
 
     getTrip = function (tripName, data) {
 
-        // would normally go server side.
-        if (!tripName) {
-            tripName = 'passport-to-the-world';
-        }
-
         sharedData.reloading = true;
 
         // if theres no data get from server
         if (!data) {
 
-            $timeout(function () {
-
-                $http({
-                    method: 'GET',
-                    url: 'app/json/' + tripName + '.json'
-                }).success(function (data) {
-                    formatTripData(data);
-                })
-                .error(function () {
-                    // put in alerts system
-                    alert("Sorry, an error occurred");
-                });
-
-            }, 2000);
+            $http({
+                method: 'GET',
+                url: 'app/json/' + tripName + '.json'
+            }).success(function (data) {
+                formatTripData(data);
+            })
+            .error(function () {
+                // put in alerts system
+                alert("Sorry, an error occurred");
+            });
 
         } else {
             // we have data
@@ -113,13 +94,10 @@
 
     };
 
-
-
     return ({
         sharedData: sharedData,
         getTrip: getTrip,
-        getCountryTrips: getCountryTrips,
-        goToPage: goToPage
+        getCountryTrips: getCountryTrips
     });
 
 }]);

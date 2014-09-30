@@ -21,12 +21,12 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
 
-<!--    {{ SharedResource.sharedData.formData.tours }}-->
+<!--    {{ SharedResource.sharedData.trip }}<br />-->
 
     <noscript>
-            <p class="chromeframe">Please enable JavaScript to use this site:<a href="http://www.enable-javascript.com/">here</a></p>
+        <p class="chromeframe">Please enable JavaScript to use this site:<a href="http://www.enable-javascript.com/">here</a></p>
     </noscript>
-       
+
     <div ng-if="SharedResource.sharedData.reloading" class="page-mask">
 
         <span>
@@ -41,12 +41,10 @@
 
         <div class="clearfix top-links">
 
-            <a class="float-left" href="/index.html">
-                &larr; back to joedarrington.com
-            </a>    
-        
-            <a class="float-right" href="https://github.com/jmditsolutions/booking-engine" target="_blank">
-                view code for page on github
+            <a class="float-left" href="/index.html">&larr; back to joedarrington.com
+            </a>
+
+            <a class="float-right" href="https://github.com/jmditsolutions/booking-engine" target="_blank">view code for page on github
             </a>
 
         </div>
@@ -55,35 +53,28 @@
             <h1 class="booking-engine-title">BOOK A JOURNEY TO {{ SharedResource.sharedData.trip.country }}</h1>
             <img ng-src="{{ SharedResource.sharedData.trip.headerImage }}" />
         </div>
+        
+        <form name="bookingform" novalidate>
 
-        <div class="col-main">
+            <div class="col-main">
 
-            <div id="pagination" ng-include="'app/templates/pagination/pagination.html'"></div>
+                <div ng-include="'app/templates/pagination/pagination.html'"></div>
 
-            <section class="booking-engine-page" ng-if="SharedResource.sharedData.currentPage == 1">
+                <div ng-view class="booking-engine-page fade">
+                </div>
 
-                <article id="trip-selector" ng-include="'app/templates/trip-selector/trip-selector.html'"></article>
-                <article id="date-selector" ng-include="'app/templates/date-selector/date-selector.html'"></article>
-                <article id="room-selector" ng-include="'app/templates/room-selector/room-selector.html'"></article>
+                <div ng-if="currentPageIndex < 4 && currentPageIndex !== 0" class="clearfix">
+                    <br />
+                    <a ng-href="#/{{ tripName }}/{{ prevPage.label }}" class="general-action-2 float-left">BACK</a>
+                </div>
 
-            </section>
+            </div>
 
-            <section class="booking-engine-page" ng-if="SharedResource.sharedData.currentPage !== 1">
+            <aside class="col-summary">
+                <div ng-include="'app/templates/booking-summary/booking-summary.html'"></div>
+            </aside>
 
-                <article id="tour-selector" ng-include="'app/templates/tour-selector/tour-selector.html'">
-                </article><br />
-
-<!--            <article id="Article2" ng-include="'app/templates/extra-selector/extra-selector.html'"></article><br />-->
-
-                <a class="general-action-2" href="" ng-click="SharedResource.sharedData.currentPage = 1">BACK</a>
-
-            </section>
-
-        </div>
-
-        <div class="col-summary">
-            <div ng-include="'app/templates/booking-summary/booking-summary.html'"></div>
-        </div>
+        </form>
 
     </div>
 
@@ -91,18 +82,10 @@
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 
     <script src="/js/vendor/angular.min.js"></script>
+    <script src="/js/vendor/angular-route.min.js"></script>
     <script src="/js/vendor/angular-animate.min.js"></script>
-    <script src="app/app.js"></script>
-    <script src="app/templates/templates.js"></script>
-    <script src="app/filters/booking-engine.js"></script>
-    <script src="app/services/resources.js"></script>
-    <script src="app/controllers/booking-engine.js"></script>
-    <script src="app/controllers/pagination.js"></script>
-    <script src="app/controllers/trip-selector.js"></script>
-    <script src="app/controllers/date-selector.js"></script>
-    <script src="app/controllers/room-selector.js"></script>
-    <script src="app/controllers/tour-selector.js"></script>
-    <script src="app/controllers/extra-selector.js"></script>
+    <script src="/js/vendor/angular-local-storage.min.js"></script>
+    <script src="main.min.js"></script>
 
 </body>
 

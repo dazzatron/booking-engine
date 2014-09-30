@@ -1,16 +1,38 @@
 ﻿angular.module('jmdApp', [
+   'LocalStorageModule',
+   'ngRoute',
    'jmd.resources',
-   'jmd.contollers',
+   'jmd.controllers',
    'jmd.filters',
-   'jmd.pagination',
    'jmd.tripSelector',
    'jmd.dateSelector',
    'jmd.roomSelector',
    'jmd.tourSelector',
-   'jmd.extraSelector',
    'ngAnimate'
-]);
+])
 
-angular.module('jmdApp').config(['$locationProvider', function ($locationProvider) {
-    $locationProvider.html5Mode(false);
-}]);
+.config(['$routeProvider',
+
+  function ($routeProvider) {
+
+      $routeProvider.
+      when('/:tripName/select', {
+          templateUrl: 'app/partials/select.html'
+      }).
+      when('/:tripName/extras', {
+          templateUrl: 'app/partials/extras.html'
+      }).
+      when('/:tripName/guests', {
+          templateUrl: 'app/partials/guests.html'
+      }).
+      when('/:tripName/payment', {
+          templateUrl: 'app/partials/payment.html'
+      }).
+      when('/:tripName/confirmation', {
+          templateUrl: 'app/partials/confirmation.html'
+      }).
+      otherwise({
+          redirectTo: '/passport-to-the-world/select'
+      });
+
+  }]);

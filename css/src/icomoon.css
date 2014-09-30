@@ -1,0 +1,37 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('/booking-engine/fonts/icomoon.eot?bd59by');
+	src:url('/booking-engine/fonts/icomoon.eot?#iefixbd59by') format('embedded-opentype'),
+		url('/booking-engine/fonts/icomoon.woff?bd59by') format('woff'),
+		url('/booking-engine/fonts/icomoon.ttf?bd59by') format('truetype'),
+		url('/booking-engine/fonts/icomoon.svg?bd59by#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	/*line-height: 1;*/
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user:before {
+	content: "\e602";
+}
+.icon-close:before {
+	content: "\e600";
+}
+.icon-checkmark:before {
+	content: "\e601";
+}
+.icon-arrow-right:before {
+	content: "\e603";
+}

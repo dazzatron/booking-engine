@@ -1,13 +1,17 @@
-﻿<body style="font-style: italic">
-    <div ng-controller="jmdPaginationCtrl" class="pagination clearfix">
+﻿<div class="pagination clearfix">
 
-    <button
-        ng-click="SharedResource.goToPage($index+1)"
+    <a ng-href="#/{{ tripName }}/{{ page.label }}"
         ng-repeat="page in pages" 
-        ng-disabled="$index > SharedResource.sharedData.currentPage-2"
-        ng-class="{ active: $index === SharedResource.sharedData.currentPage-1 }">
-        <span ng-class="{ completed: $index < SharedResource.sharedData.currentPage-1 }">{{ $index+1 }}</span>
+        ng-if="$index < currentPageIndex">
+        <span ng-class="{ completed: $index < currentPageIndex }">{{ $index+1 }}</span>
         {{ page.label }}
-    </button>
+    </a>
+
+    <div 
+        ng-repeat="page in pages" 
+        ng-class="{ active: page.label === currentPage }"
+        ng-if="$index >= currentPageIndex">
+        <span>{{ $index+1 }}</span>{{ page.label }}
+    </div>
 
 </div>

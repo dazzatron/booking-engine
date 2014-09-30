@@ -25,15 +25,13 @@
     "duration": 10,
     "maxGroupSize": 12,
     "pricesFrom": 2000,
-    "roomWordingOptions": [
-        { "id": 5, "name": "Two Double", "adults": 2, "adultOptions": [1, 2, 3, 4], "children": 2, "childOptions": [0, 1, 2, 3], "maxPeople": 4, "perAdult": 12500, "perChild": 1000 },
-        { "id": 6, "name": "Two Single", "adults": 1, "adultOptions": [1, 2], "children": 0, "childOptions": [0, 1], "maxPeople": 2, "perAdult": 1200, "perChild": 900 },
-        { "id": 7, "name": "One Double", "adults": 1, "adultOptions": [1, 2], "children": 0, "childOptions": [0, 1], "maxPeople": 1, "perAdult": 1400, "perChild": 1000 },
-        { "id": 8, "name": "One Single", "adults": 1, "adultOptions": [0, 1], "children": 0, "childOptions": [0, 1], "maxPeople": 1, "perAdult": 600, "perChild": 400 }
+    "roomOptions": [
+        { "id": 7, "name": "One Double", "adults": 2, "maxAdults": 2,  "children": 0, "maxChildren": 0, "maxPeople": 2, "perAdult": 1400, "perChild": 0 },
+        { "id": 8, "name": "One Single", "adults": 1, "maxAdults": 1, "children": 0, "maxChildren": 1, "maxPeople": 1, "perAdult": 600, "perChild": 400 }
     ],
     "dates": [
     {
-        "id": 1,
+        "id": 10,
         "limited": true,
         "from": {
             "date": "10",
@@ -47,7 +45,7 @@
         }
     },
     {
-        "id": 2,
+        "id": 12,
         "from": {
             "date": "17",
             "month": "february",
@@ -60,7 +58,7 @@
         }
     },
     {
-        "id": 3,
+        "id": 13,
         "soldOut": true,
         "from": {
             "date": "24",
@@ -74,7 +72,7 @@
         }
     },
     {
-        "id": 4,
+        "id": 14,
         "from": {
             "date": "31",
             "month": "february",
@@ -88,18 +86,24 @@
     }
 
     ],
-    "preTrips": [
+    "tours": [
         {
-            "title": "chilean wine tour",
+			"id": 1000,
+			"type": "pre",
+            "title": "great wall of china",
             "image": "/img/china.jpg",
             "days": 4,
-            "perPerson": 1000
+            "perPerson": 1000,
+			"information": "The Great Wall of China is a series of fortifications made of stone, brick, tamped earth, wood, and other materials, generally built along an east-to-west line across the historical northern borders of China in part to protect the Chinese Empire or its prototypical states against intrusions by various nomadic groups or military incursions by various warlike peoples or forces. Several walls were being built as early as the 7th century BC; these, later joined together and made bigger and stronger, are now collectively referred to as the Great Wall. Especially famous is the wall built between 220–206 BC by the first Emperor of China, Qin Shi Huang. Little of that wall remains. Since then, the Great Wall has on and off been rebuilt, maintained, and enhanced; the majority of the existing wall is from the Ming Dynasty."
         },
-        {
-            "title": "chilean wine tour 2",
-            "image": "/img/china.jpg",
-            "days": 4,
-            "perPerson": 1000
+		{
+			"id": 1001,
+			"type": "post",
+            "title": "terracotta army tour",
+            "image": "/img/terracotta-army.jpg",
+            "days": 6,
+            "perPerson": 2000,
+			"information": "The Terracotta Army or the 'Terracotta Warriors and Horses' is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. It is a form of funerary art buried with the emperor in 210–209 BCE and whose purpose was to protect the emperor in his afterlife. The figures, dating from approximately the late third century BCE, were discovered in 1974 by local farmers in Lintong District, Xi'an, Shaanxi province. The figures vary in height according to their roles, with the tallest being the generals. The figures include warriors, chariots and horses. Estimates from 2007 were that the three pits containing the Terracotta Army held more than 8,000 soldiers, 130 chariots with 520 horses and 150 cavalry horses, the majority of which remained buried in the pits nearby Qin Shi Huang's mausoleum. Other terracotta non-military figures were found in other pits, including officials, acrobats, strongmen and musicians."
         }
     ]
 

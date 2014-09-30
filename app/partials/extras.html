@@ -1,0 +1,108 @@
+﻿<div ng-controller="tourSelectorCtrl">
+    
+    <div class="tour-wrapper clearfix" ng-repeat="tour in SharedResource.sharedData.trip.tours">
+
+        <div class="tour-image">
+
+            <h2>{{ tour.type }}-TRIP TOUR</h2>
+
+            <h3>
+                
+                Enhance the 
+
+                <span ng-if="tour.type === 'pre'">start</span>
+                <span ng-if="tour.type === 'post'">end</span>
+                
+                of your trip
+
+            </h3>
+
+            <img ng-src="{{ tour.image }}" />
+
+        </div>
+
+        <div class="tour-details">
+            
+            <h2>{{ tour.title }}</h2>
+            {{ tour.days }} days<br />
+            <br />
+            Per person: {{ tour.perPerson | currency }}<br />
+            Total for all {{ sharedResource.sharedData.trip.totalGuests }} travellers: 
+
+            {{ tour.perPerson * SharedResource.sharedData.trip.totalGuests | currency }}
+
+            <br /><br />
+
+            <div class="clearfix">
+
+            <button ng-if="currentPageIndex === 1" ng-click="changeTour(tour)" class="float-right general-action-2">
+
+                <span ng-if="!tour.selected">
+                    ADD 
+                </span>
+
+                <span ng-if="tour.selected">
+                    REMOVE 
+                </span>
+
+                TRIP 
+
+            </button>
+
+            </div>
+
+            <br />
+
+            <div class="tour-information" ng-class="{ 'expanded' : showMore }">
+
+                <label class="general-action">
+
+                    <input ng-model="showMore" type="checkbox">
+
+                    <span ng-show="showMore">- LESS</span> 
+                    <span ng-show="!showMore">+ MORE</span> 
+                    
+                    INFO
+
+                </label>
+
+                {{ tour.information }}
+                            
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="tour-help clearfix" ng-if="currentPageIndex === 1">
+
+        <h2>NEED HELP TO PLAN YOUR EXTENSION?</h2>
+
+        <div class="tour-help-contact">
+
+            Alternative call us on:<br />
+
+            <h2>0800 123 123 123</h2>
+            Mon - Fri 8am to 7pm<br />
+            Sat 9am to 1pm
+
+        </div>
+
+        We'll call you back to tailor-make your perfect journey extension
+        <br /><br />
+
+        <label>
+        <input ng-model="tourHelp" type="checkbox" /> Call me back to arrange
+        </label>
+
+        <div ng-if="tourHelp">
+
+        <br />
+
+        When would you like to be contacted? <select><option>Don't mind</option></select>
+
+        </div>
+
+    </div>
+
+</div>

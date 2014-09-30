@@ -1,0 +1,334 @@
+﻿<div class="guests-wrapper">
+
+    <div ng-repeat="guest in SharedResource.sharedData.trip.guests" ng-form="bookingform" class="guest-wrapper">
+
+        <article ng-if="$index === 0" class="clearfix">
+
+            <h2>
+                
+                LEAD GUEST DETAILS
+
+            </h2>
+
+        </article>
+
+        <article ng-if="$index > 0" class="clearfix">
+
+            <div class="label-col">
+
+                <h2>
+                    
+                    GUEST {{ $index }}
+
+                </h2>
+
+            </div>
+
+            <div class="input-col">
+                {{ guest.type }}
+            </div>
+
+        </article>
+
+        <article class="clearfix">
+
+            <label>
+
+                <span class="label-col">Title *
+                </span>
+
+                <span class="input-col">
+
+                    <select ng-model="guest.title">
+                        <option>Mr</option>
+                        <option>Mrs</option>
+                        <option>Dr</option>
+                    </select>
+
+                </span>
+
+            </label>
+
+        </article>
+
+        <article class="clearfix">
+
+            <label>
+
+                <span class="label-col">First Name *
+                </span>
+
+                <span class="input-col">
+                    <input autocomplete="off" name="firstName" required ng-model="guest.firstName" type="text" />
+                </span>
+
+            </label>
+
+            <span class="msg-col">
+
+                <span ng-if="bookingform.firstName.$dirty">
+
+                    <span class="warning" ng-show="bookingform.firstName.$error.required">
+                        <span class="icon icon-close"></span> Tell us your <span ng-if="$index > 0">guest's</span> first name.
+                    </span>
+
+                    <span ng-show="!bookingform.firstName.$error.required">
+                        <span class="icon icon-checkmark general-info"></span>
+                    </span>
+
+                </span>
+
+            </span>
+
+        </article>
+
+        <article class="clearfix">
+
+            <label>
+
+                <span class="label-col">Last Name *
+                </span>
+
+                <span class="input-col">
+                    <input autocomplete="off"  name="lastName" required ng-model="guest.lastName" type="text" />
+                </span>
+
+            </label>
+
+            <span class="msg-col">
+
+                <span ng-if="bookingform.lastName.$dirty">
+
+                    <span class="warning" ng-show="bookingform.lastName.$error.required">
+                        <span class="icon icon-close"></span> Tell us your  <span ng-if="$index > 0">guest's</span> last name.
+                    </span>
+
+                    <span ng-show="!bookingform.lastName.$error.required">
+                        <span class="icon icon-checkmark general-info"></span>
+                    </span>
+
+                </span>
+
+            </span>
+
+        </article>
+
+        <div ng-if="$index === 0">
+
+            <br />
+
+            <article class="clearfix">
+
+                <label>
+
+                    <span class="label-col">House Name/Number *
+                    </span>
+
+                    <span class="input-col">
+                        <input autocomplete="off"  name="houseNumber" required ng-model="guest.houseNumber" type="text" />
+                    </span>
+
+                </label>
+
+                <span class="msg-col">
+
+                    <span ng-if="bookingform.houseNumber.$dirty">
+
+                        <span class="warning" ng-show="bookingform.houseNumber.$error.required">
+                            <span class="icon icon-close"></span> Tell us your house number/name.
+                        </span>
+
+                        <span ng-show="!bookingform.houseNumber.$error.required">
+                            <span class="icon icon-checkmark general-info"></span>
+                        </span>
+
+                    </span>
+
+                </span>
+
+            </article>
+
+            <article class="clearfix">
+
+                <label>
+
+                    <span class="label-col">Address Line 1 *
+                    </span>
+
+                    <span class="input-col">
+                        <input autocomplete="off"  name="address1" required ng-model="guest.address1" type="text" />
+                    </span>
+
+                </label>
+
+                <span class="msg-col">
+
+                    <span ng-if="bookingform.address1.$dirty">
+
+                        <span class="warning" ng-show="bookingform.address1.$error.required">
+                            <span class="icon icon-close"></span> Tell us your address.
+                        </span>
+
+                        <span ng-show="!bookingform.address1.$error.required">
+                            <span class="icon icon-checkmark general-info"></span>
+                        </span>
+
+                    </span>
+
+                </span>
+
+            </article>
+
+            <article class="clearfix">
+
+                <label>
+
+                    <span class="label-col">Address Line 2
+                    </span>
+
+                    <span class="input-col">
+                        <input autocomplete="off"  name="address2" ng-model="guest.address2" type="text" />
+                    </span>
+
+                </label>
+
+            </article>
+
+            <article class="clearfix">
+
+                <label>
+
+                    <span class="label-col">City *
+                    </span>
+
+                    <span class="input-col">
+                        <input autocomplete="off"  name="city" required ng-model="guest.city" type="text" />
+                    </span>
+
+                </label>
+
+                <span class="msg-col">
+
+                    <span ng-if="bookingform.city.$dirty">
+
+                        <span class="warning" ng-show="bookingform.city.$error.required">
+                            <span class="icon icon-close"></span> Tell us your city.
+                        </span>
+
+                        <span ng-show="!bookingform.city.$error.required">
+                            <span class="icon icon-checkmark general-info"></span>
+                        </span>
+
+                    </span>
+
+                </span>
+
+            </article>
+
+            <article class="clearfix">
+
+                <label>
+
+                    <span class="label-col">Post Code *
+                    </span>
+
+                    <span class="input-col">
+                        <input autocomplete="off"  name="postCode" required ng-model="guest.postCode" type="text" />
+                    </span>
+
+                </label>
+
+                <span class="msg-col">
+
+                    <span ng-if="bookingform.postCode.$dirty">
+
+                        <span class="warning" ng-show="bookingform.postCode.$error.required">
+                            <span class="icon icon-close"></span> Tell us your post code.
+                        </span>
+
+                        <span ng-show="!bookingform.postCode.$error.required">
+                            <span class="icon icon-checkmark general-info"></span>
+                        </span>
+
+                    </span>
+
+                </span>
+
+            </article>
+
+            <br />
+
+            <article class="clearfix">
+
+                <label>
+
+                    <span class="label-col">Email *
+                    </span>
+
+                    <span class="input-col">
+                        <input autocomplete="off"  name="email" ng-model-options="{ updateOn: 'blur' }" required type="email" ng-model="guest.email" type="text" />
+                    </span>
+
+                </label>
+
+                <span class="msg-col">
+
+                    <span ng-if="bookingform.email.$dirty">
+
+                        <span class="warning" ng-show="bookingform.email.$error.required">
+                            <span class="icon icon-close"></span> Tell us your email address.
+                        </span>
+
+                        <span class="warning" ng-show="bookingform.email.$error.email">
+                            <span class="icon icon-close"></span> Please enter a valid email address.
+                        </span>
+
+                        <span ng-show="!bookingform.email.$error.required && !bookingform.email.$error.email">
+                            <span class="icon icon-checkmark general-info"></span>
+                        </span>
+
+                    </span>
+
+                </span>
+
+            </article>
+
+        </div>
+
+    </div>
+
+    <!--    <div class="guest-wrapper">
+
+        <article class="clearfix">
+
+            <h2>ALLOCATE ROOMS</h2>
+
+            <span class="general-info">Click and drag to place person to room.</span>
+
+        </article>
+
+    </div>-->
+
+    <div class="guest-wrapper clearfix">
+
+        <article class="clearfix">
+
+            <h2>ADDITIONAL INFORMATION</h2>
+
+        </article>
+
+        <article class="clearfix">
+
+            <span class="label-col guests-info">Please tell us about any dietary or accessibility requirements 
+                    you or your guests may have or if you would like interconnecting rooms.
+            </span>
+
+            <span class="input-col">
+                <textarea></textarea>
+            </span>
+
+        </article>
+
+    </div>
+
+</div>

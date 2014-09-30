@@ -108,22 +108,29 @@ float:right;
 
 select, input {
     padding:5px;
-    border-color:#ccc;
+    border: 1px #ccc solid;
     font-size:12px;
 }
 
 
 .call-to-action {
     color:#333;
-    padding:5px 15px;
+    padding:0 15px;
     font-weight:bold;
     background:#fc0;
     outline:none;
+    border:none;
+    height:30px;
+    line-height:30px;
 }
 
 .call-to-action:hover {
     text-decoration:none;
     color:#666;
+}
+
+.call-to-action span {
+    margin-left:5px;
 }
 
 .general-action {
@@ -144,12 +151,14 @@ select, input {
 }
 
 .general-action-2 {
-    padding: 4px 15px;
+    padding: 0 8px;
     border: #fecd07 solid 3px;
     background: #fff;
     font-size: 12px;
     outline:none;
     color:#333;
+    height:25px;
+    line-height:19px;
 }
 
 .general-action-2:hover {
@@ -259,17 +268,15 @@ a:hover {
 }
 
 .fade.ng-enter, .fade.ng-leave-active {
-    -webkit-transition: all 1000ms, opacity 200ms;
-    transition: all 1000ms, opacity 200ms;
+    -webkit-transition: all 500ms;
+    transition: all 500ms;
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
     opacity:0;
-    -webkit-transform:translateY(-10px);
-    -moz-transform:translateY(-10px);
-    transform:translateY(-10px);
 }
  
 .fade.ng-enter-active, .fade.ng-leave {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
     opacity:1;
-    -webkit-transform:translateY(0);
-    -moz-transform:translateY(0);
-    transform:translateY(0);
 }
