@@ -97,7 +97,7 @@ float:right;
 .page-mask.ng-leave-active {
     -webkit-transform:scale(1.1);
     transform:scale(1.1);
-    opacity:0;
+    opacity:0; 
 }
 
 .page-mask span {
