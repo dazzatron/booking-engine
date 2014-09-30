@@ -6,6 +6,7 @@
    'jmd.filters',
    'jmd.tripSelector',
    'jmd.dateSelector',
+   'jmd.dateSummary',
    'jmd.roomSelector',
    'jmd.tourSelector',
    'ngAnimate'

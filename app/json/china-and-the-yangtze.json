@@ -26,8 +26,8 @@
     "maxGroupSize": 18,
     "pricesFrom": 2000,
     "roomOptions": [
-        { "id": 1, "name": "Two Double", "adults": 2, "maxAdults": 2, "children": 0, "maxChildren": 2, "maxPeople": 4, "perAdult": 100, "perChild":200 },
-        { "id": 2, "name": "Two Single", "adults": 1, "maxAdults": 2, "children": 1, "maxChildren": 2, "maxPeople": 2, "perAdult": 1200, "perChild": 900 }
+        { "id": 1, "name": "Two Double", "maxPeople": 4, "perAdult": 100, "perChild":200 },
+        { "id": 2, "name": "Two Single", "maxPeople": 2, "perAdult": 1200, "perChild": 900 }
     ],
     "dates": [
     {

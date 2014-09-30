@@ -75,50 +75,33 @@
         $scope.SharedResource.sharedData.trip.rooms.splice(index, 1);
     };
 
+    // watch for new data from server
+    // if we have data before this, this will be called anyway, if we get it after it will also be called, so no issue
+    $scope.$watch('SharedResource.sharedData.trip.roomOptions',
 
-    $scope.init = function () {
+        function (newValue, oldValue) {
 
-        // empty rooms array to store rooms added.
-        $scope.SharedResource.sharedData.trip.rooms = [];
+            if (newValue) {
 
-        // create values
-        for (var i = 0, length = $scope.SharedResource.sharedData.trip.roomOptions.length; i < length; i++) {
+                // empty rooms array to store rooms added.
+                $scope.SharedResource.sharedData.trip.rooms = [];
 
-            var currentRoomOptions = $scope.SharedResource.sharedData.trip.roomOptions[i];
-            currentRoomOptions.adults = 1;
-            currentRoomOptions.children = 0;
-            currentRoomOptions.maxAdults = currentRoomOptions.maxPeople;
-            currentRoomOptions.maxChildren = currentRoomOptions.maxPeople - 1;
+                // create values
+                for (var i = 0, length = $scope.SharedResource.sharedData.trip.roomOptions.length; i < length; i++) {
 
-        }
+                    var currentRoomOptions = $scope.SharedResource.sharedData.trip.roomOptions[i];
+                    currentRoomOptions.adults = 1;
+                    currentRoomOptions.children = 0;
+                    currentRoomOptions.maxAdults = currentRoomOptions.maxPeople;
+                    currentRoomOptions.maxChildren = currentRoomOptions.maxPeople - 1;
 
-        // add room by default
-        $scope.addRoom(true);
-
-    };
-
-
-
-
-    // we already have data from server, but we havent created rooms
-    if ($scope.SharedResource.sharedData.trip && !$scope.SharedResource.sharedData.rooms) {
-
-        $scope.init();
-
-    // otherwise wait for server
-    } else {
-
-        // watch for new data from server
-        $scope.$watch('SharedResource.sharedData.trip.roomOptions',
-
-            function (newValue, oldValue) {
-
-                if (newValue && newValue !== oldValue) {
-                    $scope.init();
                 }
 
-            }, true);
+                // add room by default
+                $scope.addRoom(true);
 
-    }
+            }
+
+        }, true);
 
 }]);

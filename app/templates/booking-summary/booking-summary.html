@@ -21,17 +21,7 @@
                 <h2>{{ tour.title }}
                 </h2>
 
-                <div class="booking-summary-date-wrapper">
-
-                    <span class="booking-summary-month">{{ (date.from - (secondsInDay * tour.days)) | date:'MMM' }}
-                    </span>
-
-                    <span class="booking-summary-day">{{ (date.from - (secondsInDay * tour.days)) | date:'dd' }}
-                    </span>
-
-                    <span class="booking-summary-year">{{ (date.from - (secondsInDay * tour.days)) | date:'yyyy' }}
-                    </span>
-
+                <div jmd-date date-code="{{date.from}}" day-diff="{{-tour.days}}">
                 </div>
 
                 <div class="booking-summary-divider">
@@ -39,17 +29,7 @@
                     </span>
                 </div>
 
-                <div class="booking-summary-date-wrapper">
-
-                    <span class="booking-summary-month">{{ date.from | date:'MMM' }}
-                    </span>
-
-                    <span class="booking-summary-day">{{ date.from | date:'dd' }}
-                    </span>
-
-                    <span class="booking-summary-year">{{ date.from | date:'yyyy' }}
-                    </span>
-
+                <div jmd-date date-code="{{date.from}}">
                 </div>
 
                 <br />
@@ -83,17 +63,7 @@
 
                 <div class="clearfix">
 
-                    <div class="booking-summary-date-wrapper">
-
-                        <span class="booking-summary-month">{{ date.from | date:'MMM' }}
-                        </span>
-
-                        <span class="booking-summary-day">{{ date.from | date:'dd' }}
-                        </span>
-
-                        <span class="booking-summary-year">{{ date.from | date:'yyyy' }}
-                        </span>
-
+                    <div jmd-date date-code="{{date.from}}">
                     </div>
 
                     <div class="booking-summary-divider">
@@ -101,17 +71,7 @@
                         </span>
                     </div>
 
-                    <div class="booking-summary-date-wrapper">
-
-                        <span class="booking-summary-month">{{ date.to | date:'MMM' }}
-                        </span>
-
-                        <span class="booking-summary-day">{{ date.to | date:'dd' }}
-                        </span>
-
-                        <span class="booking-summary-year">{{ date.to | date:'yyyy' }}
-                        </span>
-
+                    <div jmd-date date-code="{{date.to}}">
                     </div>
 
                 </div>
@@ -143,35 +103,15 @@
                 <h2>{{ tour.title }}
                 </h2>
 
-                <div class="booking-summary-date-wrapper">
-
-                    <span class="booking-summary-month">{{ date.to | date:'MMM' }}
-                    </span>
-
-                    <span class="booking-summary-day">{{ date.to | date:'dd' }}
-                    </span>
-
-                    <span class="booking-summary-year">{{ date.to | date:'yyyy' }}
-                    </span>
-
+                <div jmd-date date-code="{{date.to}}">
                 </div>
 
                 <div class="booking-summary-divider">
                     <span class="booking-summary-arrow">&#10140;
                     </span>
                 </div>
-
-                <div class="booking-summary-date-wrapper">
-
-                    <span class="booking-summary-month">{{ (date.to + (secondsInDay * tour.days)) | date:'MMM' }}
-                    </span>
-
-                    <span class="booking-summary-day">{{ (date.to + (secondsInDay * tour.days)) | date:'dd' }}
-                    </span>
-
-                    <span class="booking-summary-year">{{ (date.to + (secondsInDay * tour.days)) | date:'yyyy' }}
-                    </span>
-
+                
+                <div jmd-date date-code="{{date.to}}" day-diff="{{tour.days}}">
                 </div>
 
                 <br />

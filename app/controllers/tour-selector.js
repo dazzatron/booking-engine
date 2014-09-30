@@ -3,7 +3,7 @@
 .controller('tourSelectorCtrl',
 ['$scope', '$location', 'SharedResource',
 function ($scope, $location, SharedResource) {
-    
+
     $scope.SharedResource = SharedResource;
 
     // function to add pre trip, this automatically changes the shared obj, not local obj
@@ -22,6 +22,8 @@ function ($scope, $location, SharedResource) {
     ];
 
     // check/create
-    SharedResource.sharedData.trip.callBackOption = SharedResource.sharedData.trip.callBackOption || $scope.callBackOptions[0];
+    if (SharedResource.sharedData.trip) {
+        SharedResource.sharedData.trip.callBackOption = SharedResource.sharedData.trip.callBackOption || $scope.callBackOptions[0];
+    }
 
 }]);

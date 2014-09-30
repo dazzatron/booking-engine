@@ -22,12 +22,12 @@
     "headerImage": "/img/japan-header.jpg",
     "countryImage": "/img/japan.jpg",
     "tripImage": "/img/japan-map.jpg",
-    "duration": 22,
+    "duration": 7,
     "maxGroupSize": 20,
     "pricesFrom": 5000,
     "roomOptions": [
-        { "id": 100, "name": "Two Double", "adults": 2, "maxAdults": 2, "children": 0, "maxChildren": 2, "maxPeople": 4, "perAdult": 200, "perChild":400 },
-        { "id": 200, "name": "Two Single", "adults": 1, "maxAdults": 2, "children": 1, "maxChildren": 2, "maxPeople": 2, "perAdult": 2200, "perChild": 1800 }
+        { "id": 100, "name": "Two Double", "maxPeople": 4, "perAdult": 200, "perChild":400 },
+        { "id": 200, "name": "Two Single", "maxPeople": 2, "perAdult": 2200, "perChild": 1800 }
     ],
         "dates": [
     {

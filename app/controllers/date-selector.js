@@ -18,29 +18,17 @@
 
     };
 
-    $scope.init = function () {
-        // select first date
-        $scope.changeDate(SharedResource.sharedData.trip.dates[0]);
-    };
+    // we get new data from server
+    // if we have data before this, this will be called when created anyway, if we get it after it will also be called, so no issue
+    var watcher = $scope.$watch('SharedResource.sharedData.trip.dates',
 
-    // we already have data from server, but we havent formatted it
-    if ($scope.SharedResource.sharedData.trip && !$scope.SharedResource.sharedData.trip.dateSelected) {
+        function (newValue, oldValue) {
 
-        $scope.init();
+            if (newValue) {
+                $scope.changeDate(SharedResource.sharedData.trip.dates[0]);
+                watcher(); //removes
+            }
 
-    } else {
-
-        // we get new data from server
-        $scope.$watch('SharedResource.sharedData.trip.dates',
-
-            function (newValue, oldValue) {
-
-                if (newValue && newValue !== oldValue) {
-                    $scope.init();
-                }
-
-            }, true);
-
-    }
+        }, true);
 
 }]);

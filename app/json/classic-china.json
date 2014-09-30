@@ -26,8 +26,8 @@
     "maxGroupSize": 12,
     "pricesFrom": 2000,
     "roomOptions": [
-        { "id": 7, "name": "One Double", "adults": 2, "maxAdults": 2,  "children": 0, "maxChildren": 0, "maxPeople": 2, "perAdult": 1400, "perChild": 0 },
-        { "id": 8, "name": "One Single", "adults": 1, "maxAdults": 1, "children": 0, "maxChildren": 1, "maxPeople": 1, "perAdult": 600, "perChild": 400 }
+        { "id": 7, "name": "One Double", "maxPeople": 2, "perAdult": 1400, "perChild": 0 },
+        { "id": 8, "name": "One Single", "maxPeople": 1, "perAdult": 600, "perChild": 400 }
     ],
     "dates": [
     {
