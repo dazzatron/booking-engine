@@ -100,7 +100,7 @@ float:right;
     opacity:0; 
 }
 
-.page-mask span {
+.page-mask > div {
     display:table-cell;
     vertical-align:middle;
     text-align:center;
@@ -114,7 +114,7 @@ select, input {
 
 
 .call-to-action {
-    color:#333;
+    color:#333 !important;
     padding:0 15px;
     font-weight:bold;
     background:#fc0;
@@ -206,6 +206,10 @@ hr {
     margin:0;
 }
 
+.col-summary h3 {
+    text-transform:uppercase;
+}
+
 .col-summary hr {
     width:100%;
     margin:10px 0;
@@ -270,8 +274,8 @@ a:hover {
 .fade.ng-enter, .fade.ng-leave-active {
     -webkit-transition: all 500ms;
     transition: all 500ms;
-    -webkit-transform: translateY(10px);
-    transform: translateY(10px);
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
     opacity:0;
 }
  

@@ -34,44 +34,19 @@
     {
         "id": 31,
         "limited": true,
-        "from": {
-            "date": "10",
-            "month": "may",
-            "year": "2015"
-        },
-        "to": {
-            "date": "17",
-            "month": "may",
-            "year": "2015"
-        }
+        "from": 1431212400000,
+        "to": 1431817200000
     },
     {
         "id": 32,
-        "from": {
-            "date": "17",
-            "month": "may",
-            "year": "2015"
-        },
-        "to": {
-            "date": "24",
-            "month": "may",
-            "year": "2015"
-        }
+        "from": 1431817200000,
+        "to": 1432422000000
     },
     {
         "id": 34,
-        "from": {
-            "date": "31",
-            "month": "may",
-            "year": "2015"
-        },
-        "to": {
-            "date": "07",
-            "month": "june",
-            "year": "2015"
-        }
+        "from": 1432422000000,
+        "to": 1433113200000
     }
-
     ],
     "tours": [
         {

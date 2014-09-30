@@ -10,20 +10,18 @@
         ng-repeat="date in SharedResource.sharedData.trip.dates track by $index"
         ng-click="changeDate(date)">
 
-<!--        <label>-->
-
             <span class="date-selector-date-wrapper">
 
                 <span class="date-selector-month">
-                    {{ date.from.month }}
+                    {{ date.from| date:'MMM' }}
                 </span>  
 
                 <span class="date-selector-day">
-                    {{ date.from.date }}
+                    {{ date.from | date:'dd' }}
                 </span>            
 
                 <span class="date-selector-year">
-                    {{ date.from.year }}
+                    {{ date.from | date:'yyyy' }}
                 </span>
 
             </span>
@@ -39,15 +37,15 @@
             <span class="date-selector-date-wrapper">
 
                 <span class="date-selector-month">
-                    {{ date.to.month }}
+                    {{ date.to | date:'MMM' }}
                 </span>  
 
                 <span class="date-selector-day">
-                    {{ date.to.date }}
+                    {{ date.to | date:'dd' }}
                 </span>            
 
                 <span class="date-selector-year">
-                    {{ date.to.year }}
+                    {{ date.to | date:'yyyy' }}
                 </span>
 
             </span>
@@ -63,14 +61,6 @@
                 </span>
 
             </span>
-
-<!--            <input
-                class="float-right"
-                type="radio"
-                ng-value="date"
-                ng-model="date.selected" />
-
-        </label>-->
 
     </div>
 

@@ -29,49 +29,23 @@
         { "id": 100, "name": "Two Double", "adults": 2, "maxAdults": 2, "children": 0, "maxChildren": 2, "maxPeople": 4, "perAdult": 200, "perChild":400 },
         { "id": 200, "name": "Two Single", "adults": 1, "maxAdults": 2, "children": 1, "maxChildren": 2, "maxPeople": 2, "perAdult": 2200, "perChild": 1800 }
     ],
-    "dates": [
+        "dates": [
     {
-        "id": 21,
+        "id": 31,
         "limited": true,
-        "from": {
-            "date": "10",
-            "month": "march",
-            "year": "2014"
-        },
-        "to": {
-            "date": "17",
-            "month": "march",
-            "year": "2014"
-        }
+        "from": 1431212400000,
+        "to": 1431817200000
     },
     {
-        "id": 22,
-        "from": {
-            "date": "17",
-            "month": "march",
-            "year": "2014"
-        },
-        "to": {
-            "date": "24",
-            "month": "march",
-            "year": "2014"
-        }
+        "id": 32,
+        "from": 1431817200000,
+        "to": 1432422000000
     },
     {
-        "id": 23,
-        "soldOut": true,
-        "from": {
-            "date": "24",
-            "month": "march",
-            "year": "2014"
-        },
-        "to": {
-            "date": "31",
-            "month": "march",
-            "year": "2014"
-        }
+        "id": 34,
+        "from": 1432422000000,
+        "to": 1433113200000
     }
-
     ],
     "tours": [
         {

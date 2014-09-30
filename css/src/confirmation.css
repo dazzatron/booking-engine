@@ -2,3 +2,9 @@
     margin-right:20px;
     float:left;
 }
+
+.confimration-receipt {
+    border-top:1px solid #ccc;
+    text-transform:uppercase;
+    margin:20px 0;
+}

@@ -6,6 +6,9 @@ function ($location, $scope, SharedResource, localStorageService, $rootScope, $r
 
     $scope.SharedResource = SharedResource;
 
+    // to shared?
+    $scope.secondsInDay = 86400000;
+
     // pagination - put into shared?
     $scope.pages = [
         { label: 'select' },
@@ -20,6 +23,8 @@ function ($location, $scope, SharedResource, localStorageService, $rootScope, $r
 
         $("html, body").animate({ scrollTop: 0 }, 200);
         // fire back to server to check?
+
+        SharedResource.sharedData.reloading = true;
 
     });
 
@@ -37,6 +42,8 @@ function ($location, $scope, SharedResource, localStorageService, $rootScope, $r
 
     // Watch route changes
     $rootScope.$on("$routeChangeSuccess", function (event, route) {
+
+        SharedResource.sharedData.reloading = false;
 
         // kick off
         $scope.tripName = $location.path().split('/')[1];

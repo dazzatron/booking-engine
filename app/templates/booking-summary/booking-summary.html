@@ -1,4 +1,4 @@
-﻿<div class="booking-summary" ng-if="currentPageIndex < 4">
+﻿<div class="booking-summary">
 
     <select
         ng-model="SharedResource.sharedData.selectedCurrency"
@@ -9,91 +9,27 @@
 
     <h1>SUMMARY</h1>
 
-    <!-- main tour -->
     <div class="clearfix" ng-repeat="date in SharedResource.sharedData.trip.dates">
 
         <div class="fade" ng-if="date.selected">
 
             <!--pre trips-->
-            <div class="clearfix" ng-repeat="tour in SharedResource.sharedData.trip.tours">
+            <div class="clearfix fade" ng-if="tour.type === 'pre' && tour.selected" ng-repeat="tour in SharedResource.sharedData.trip.tours">
 
-                <div class="fade" ng-if="tour.type === 'pre' && tour.selected">
-
-                    <br />
-                    <i>Pre Trip Tour:</i>
-                    <h2>{{ tour.title }}
-                    </h2>
-
-                    <div class="booking-summary-date-wrapper">
-
-                        <span class="booking-summary-month">{{ date.from.month }}
-                        </span>
-
-                        <span class="booking-summary-day">{{ date.from.date - tour.days }}
-                        </span>
-
-                        <span class="booking-summary-year">{{ date.from.year }}
-                        </span>
-
-                    </div>
-
-                    <div class="booking-summary-divider">
-                        <span class="booking-summary-arrow">&#10140;
-                        </span>
-                    </div>
-
-                    <div class="booking-summary-date-wrapper">
-
-                        <span class="booking-summary-month">{{ date.from.month }}
-                        </span>
-
-                        <span class="booking-summary-day">{{ date.from.date }}
-                        </span>
-
-                        <span class="booking-summary-year">{{ date.from.year }}
-                        </span>
-
-                    </div>
-
-                    <br />
-                    <br />
-
-                    <hr />
-
-                    <div class="clearfix">
-
-                        <div class="float-left">
-                            {{ SharedResource.sharedData.trip.totalGuests }} guest<span ng-if="SharedResource.sharedData.trip.totalGuests !== 1">s</span>
-                        </div>
-
-                        <div class="float-right">
-                            {{ tour.perPerson * SharedResource.sharedData.trip.totalGuests | currency }}
-                        </div>
-
-                    </div>
-
-                    <hr />
-
-                </div>
-
-            </div>
-
-
-            <br />
-            <h2>{{ SharedResource.sharedData.trip.name }}
-            </h2>
-
-            <div class="clearfix">
+                <br />
+                <i>Pre Trip Tour:</i>
+                <h2>{{ tour.title }}
+                </h2>
 
                 <div class="booking-summary-date-wrapper">
 
-                    <span class="booking-summary-month">{{ date.from.month }}
+                    <span class="booking-summary-month">{{ (date.from - (secondsInDay * tour.days)) | date:'MMM' }}
                     </span>
 
-                    <span class="booking-summary-day">{{ date.from.date }}
+                    <span class="booking-summary-day">{{ (date.from - (secondsInDay * tour.days)) | date:'dd' }}
                     </span>
 
-                    <span class="booking-summary-year">{{ date.from.year }}
+                    <span class="booking-summary-year">{{ (date.from - (secondsInDay * tour.days)) | date:'yyyy' }}
                     </span>
 
                 </div>
@@ -105,54 +41,57 @@
 
                 <div class="booking-summary-date-wrapper">
 
-                    <span class="booking-summary-month">{{ date.to.month }}
+                    <span class="booking-summary-month">{{ date.from | date:'MMM' }}
                     </span>
 
-                    <span class="booking-summary-day">{{ date.to.date }}
+                    <span class="booking-summary-day">{{ date.from | date:'dd' }}
                     </span>
 
-                    <span class="booking-summary-year">{{ date.to.year }}
+                    <span class="booking-summary-year">{{ date.from | date:'yyyy' }}
                     </span>
 
                 </div>
+
+                <br />
+                <br />
+
+                <hr />
+
+                <div class="clearfix">
+
+                    <div class="float-left">
+                        {{ SharedResource.sharedData.trip.totalGuests }} guest<span ng-if="SharedResource.sharedData.trip.totalGuests !== 1">s</span>
+                    </div>
+
+                    <div class="float-right">
+                        {{ tour.perPerson * SharedResource.sharedData.trip.totalGuests | currency }}
+                    </div>
+
+                </div>
+
+                <hr />
 
             </div>
 
-            <hr />
+            <!-- main tour -->
 
-            <div class="clearfix">
+            <div>
 
-                <div class="float-left">
-                    {{ SharedResource.sharedData.trip.totalGuests }} guest<span ng-if="SharedResource.sharedData.trip.totalGuests !== 1">s</span>
-                </div>
+                <br />
+                <h2>{{ SharedResource.sharedData.trip.name }}
+                </h2>
 
-                <div class="float-right">
-                    {{ SharedResource.sharedData.trip.totalGuestCost | currency }}
-                </div>
-
-            </div>
-
-            <hr />
-
-            <!--post trips-->
-            <div class="clearfix" ng-repeat="tour in SharedResource.sharedData.trip.tours">
-
-                <div class="fade" ng-if="tour.type === 'post' && tour.selected">
-
-                    <br />
-                    <i>Post Trip Tour:</i>
-                    <h2>{{ tour.title }}
-                    </h2>
+                <div class="clearfix">
 
                     <div class="booking-summary-date-wrapper">
 
-                        <span class="booking-summary-month">{{ date.to.month }}
+                        <span class="booking-summary-month">{{ date.from | date:'MMM' }}
                         </span>
 
-                        <span class="booking-summary-day">{{ date.to.date }}
+                        <span class="booking-summary-day">{{ date.from | date:'dd' }}
                         </span>
 
-                        <span class="booking-summary-year">{{ date.to.year }}
+                        <span class="booking-summary-year">{{ date.from | date:'yyyy' }}
                         </span>
 
                     </div>
@@ -164,37 +103,95 @@
 
                     <div class="booking-summary-date-wrapper">
 
-                        <span class="booking-summary-month">{{ date.to.month }}
+                        <span class="booking-summary-month">{{ date.to | date:'MMM' }}
                         </span>
 
-                        <span class="booking-summary-day">{{ (date.to.date - 0 + tour.days) }}
+                        <span class="booking-summary-day">{{ date.to | date:'dd' }}
                         </span>
 
-                        <span class="booking-summary-year">{{ date.to.year }}
+                        <span class="booking-summary-year">{{ date.to | date:'yyyy' }}
                         </span>
 
                     </div>
-
-                    <br />
-                    <br />
-
-                    <hr />
-
-                    <div class="clearfix">
-
-                        <div class="float-left">
-                            {{ SharedResource.sharedData.trip.totalGuests }} guest<span ng-if="SharedResource.sharedData.trip.totalGuests !== 1">s</span>
-                        </div>
-
-                        <div class="float-right">
-                            {{ tour.perPerson * SharedResource.sharedData.trip.totalGuests | currency }}
-                        </div>
-
-                    </div>
-
-                    <hr />
 
                 </div>
+
+                <hr />
+
+                <div class="clearfix">
+
+                    <div class="float-left">
+                        {{ SharedResource.sharedData.trip.totalGuests }} guest<span ng-if="SharedResource.sharedData.trip.totalGuests !== 1">s</span>
+                    </div>
+
+                    <div class="float-right">
+                        {{ SharedResource.sharedData.trip.totalGuestCost | currency }}
+                    </div>
+
+                </div>
+
+                <hr />
+
+            </div>
+
+            <!--post trips-->
+            <div class="clearfix fade" ng-if="tour.type === 'post' && tour.selected" ng-repeat="tour in SharedResource.sharedData.trip.tours">
+
+
+                <br />
+                <i>Post Trip Tour:</i>
+                <h2>{{ tour.title }}
+                </h2>
+
+                <div class="booking-summary-date-wrapper">
+
+                    <span class="booking-summary-month">{{ date.to | date:'MMM' }}
+                    </span>
+
+                    <span class="booking-summary-day">{{ date.to | date:'dd' }}
+                    </span>
+
+                    <span class="booking-summary-year">{{ date.to | date:'yyyy' }}
+                    </span>
+
+                </div>
+
+                <div class="booking-summary-divider">
+                    <span class="booking-summary-arrow">&#10140;
+                    </span>
+                </div>
+
+                <div class="booking-summary-date-wrapper">
+
+                    <span class="booking-summary-month">{{ (date.to + (secondsInDay * tour.days)) | date:'MMM' }}
+                    </span>
+
+                    <span class="booking-summary-day">{{ (date.to + (secondsInDay * tour.days)) | date:'dd' }}
+                    </span>
+
+                    <span class="booking-summary-year">{{ (date.to + (secondsInDay * tour.days)) | date:'yyyy' }}
+                    </span>
+
+                </div>
+
+                <br />
+                <br />
+
+                <hr />
+
+                <div class="clearfix">
+
+                    <div class="float-left">
+                        {{ SharedResource.sharedData.trip.totalGuests }} guest<span ng-if="SharedResource.sharedData.trip.totalGuests !== 1">s</span>
+                    </div>
+
+                    <div class="float-right">
+                        {{ tour.perPerson * SharedResource.sharedData.trip.totalGuests | currency }}
+                    </div>
+
+                </div>
+
+                <hr />
 
             </div>
 

@@ -16,9 +16,69 @@
 
 </div>
 
-<br />
+<div class="confimration-receipt clearfix">
 
-<!--<h2>RECEIPT</h2>-->
+    <h2>RECEIPT</h2>
+
+    <div class="clearfix" ng-repeat="tour in SharedResource.sharedData.trip.tours">
+
+        <div class="fade" ng-if="tour.type === 'pre' && tour.selected">
+
+            <div class="float-left">
+                {{ tour.title }} 
+            </div>
+
+            <div class="float-right">
+                {{ tour.perPerson * SharedResource.sharedData.trip.totalGuests | currency }}
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="clearfix">
+
+        <div class="float-left">
+            {{ SharedResource.sharedData.trip.name }} 
+        </div>
+
+        <div class="float-right">
+            {{ SharedResource.sharedData.trip.totalGuestCost | currency }}
+        </div>
+
+    </div>
+
+    <div class="clearfix" ng-repeat="tour in SharedResource.sharedData.trip.tours">
+
+        <div class="fade" ng-if="tour.type === 'post' && tour.selected">
+
+            <div class="float-left">
+                {{ tour.title }} 
+            </div>
+
+            <div class="float-right">
+                {{ tour.perPerson * SharedResource.sharedData.trip.totalGuests | currency }}
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="clearfix">
+
+        <div class="float-left">
+            <b>total</b>
+        </div>
+
+        <div class="float-right">
+            <b>
+            {{ SharedResource.sharedData.trip.totalGuestCost | currency }}
+            </b>
+        </div>
+
+    </div>
+
+</div>
 
 <article ng-include="'app/partials/extras.html'">
 </article>

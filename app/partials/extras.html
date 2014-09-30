@@ -1,6 +1,6 @@
 ﻿<div ng-controller="tourSelectorCtrl">
     
-    <div class="tour-wrapper clearfix" ng-repeat="tour in SharedResource.sharedData.trip.tours">
+    <div class="tour-wrapper clearfix" ng-if="currentPageIndex === 1 || tour.selected" ng-repeat="tour in SharedResource.sharedData.trip.tours">
 
         <div class="tour-image">
 
@@ -53,14 +53,14 @@
 
             <br />
 
-            <div class="tour-information" ng-class="{ 'expanded' : showMore }">
+            <div class="tour-information" ng-class="{ 'expanded' : tour.showMore }">
 
                 <label class="general-action">
 
-                    <input ng-model="showMore" type="checkbox">
+                    <input ng-model="tour.showMore" type="checkbox">
 
-                    <span ng-show="showMore">- LESS</span> 
-                    <span ng-show="!showMore">+ MORE</span> 
+                    <span ng-show="tour.showMore">- LESS</span> 
+                    <span ng-show="!tour.showMore">+ MORE</span> 
                     
                     INFO
 
@@ -92,14 +92,18 @@
         <br /><br />
 
         <label>
-        <input ng-model="tourHelp" type="checkbox" /> Call me back to arrange
+        <input ng-model="SharedResource.sharedData.trip.callBack" type="checkbox" /> Call me back to arrange
         </label>
 
-        <div ng-if="tourHelp">
+        <div ng-if="SharedResource.sharedData.trip.callBack">
 
         <br />
 
-        When would you like to be contacted? <select><option>Don't mind</option></select>
+        When would you like to be contacted? 
+            <select 
+                ng-options="callBackOption for callBackOption in callBackOptions" 
+                ng-model="SharedResource.sharedData.trip.callBackOption">
+            </select>
 
         </div>
 

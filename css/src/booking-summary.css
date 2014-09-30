@@ -4,6 +4,10 @@
     width:220px;
 }
 
+.booking-summary a {
+    color:#999;
+}
+
 .booking-summary.fixed {
     position:fixed;
     top:20px;

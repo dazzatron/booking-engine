@@ -22,7 +22,7 @@
     "headerImage": "/img/china-header.jpg",
     "countryImage": "/img/yangtze.jpg",
     "tripImage": "/img/china-map.jpg",
-    "duration": 15,
+    "duration": 7,
     "maxGroupSize": 18,
     "pricesFrom": 2000,
     "roomOptions": [
@@ -33,55 +33,23 @@
     {
         "id": 1,
         "limited": true,
-        "from": {
-            "date": "10",
-            "month": "december",
-            "year": "2014"
-        },
-        "to": {
-            "date": "17",
-            "month": "december",
-            "year": "2014"
-        }
+        "from":1418342400000,
+        "to": 1418947200000
     },
     {
         "id": 2,
-        "from": {
-            "date": "17",
-            "month": "december",
-            "year": "2014"
-        },
-        "to": {
-            "date": "24",
-            "month": "december",
-            "year": "2014"
-        }
+        "from": 1418947200000,
+        "to": 1419552000000
     },
     {
         "id": 3,
-        "from": {
-            "date": "24",
-            "month": "december",
-            "year": "2014"
-        },
-        "to": {
-            "date": "31",
-            "month": "december",
-            "year": "2014"
-        }
+        "from": 1419552000000,
+        "to": 1420243200000
     },
     {
         "id": 4,
-        "from": {
-            "date": "31",
-            "month": "december",
-            "year": "2014"
-        },
-        "to": {
-            "date": "07",
-            "month": "january",
-            "year": "2015"
-        }
+        "from": 1420243200000,
+        "to": 1420848000000
     }
 
     ],

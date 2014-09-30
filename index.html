@@ -29,11 +29,10 @@
 
     <div ng-if="SharedResource.sharedData.reloading" class="page-mask">
 
-        <span>
-            <h2 ng-if="!SharedResource.sharedData.trip">AngularJS holiday booking system</h2>
-            <h1>Loading trip...</h1>
+        <div>
+            <h1>Loading...</h1>
             <img src="/img/ajax-loader.gif" />
-        </span>
+        </div>
 
     </div>
 
@@ -71,7 +70,8 @@
             </div>
 
             <aside class="col-summary">
-                <div ng-include="'app/templates/booking-summary/booking-summary.html'"></div>
+                <div ng-include="'app/templates/booking-summary/booking-summary.html'" ng-if="currentPageIndex < 4"></div>
+                <div ng-include="'app/templates/booking-summary-completed/booking-summary-completed.html'" ng-if="currentPageIndex === 4"></div>
             </aside>
 
         </form>
@@ -80,11 +80,6 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-
-    <script src="/js/vendor/angular.min.js"></script>
-    <script src="/js/vendor/angular-route.min.js"></script>
-    <script src="/js/vendor/angular-animate.min.js"></script>
-    <script src="/js/vendor/angular-local-storage.min.js"></script>
     <script src="main.min.js"></script>
 
 </body>

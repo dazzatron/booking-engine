@@ -22,7 +22,7 @@
     "headerImage": "/img/china-header.jpg",
     "countryImage": "/img/china.jpg",
     "tripImage": "/img/china-map.jpg",
-    "duration": 10,
+    "duration": 7,
     "maxGroupSize": 12,
     "pricesFrom": 2000,
     "roomOptions": [
@@ -33,56 +33,24 @@
     {
         "id": 10,
         "limited": true,
-        "from": {
-            "date": "10",
-            "month": "february",
-            "year": "2014"
-        },
-        "to": {
-            "date": "17",
-            "month": "february",
-            "year": "2014"
-        }
+        "from": 1425254400000,
+        "to": 1425859200000
     },
     {
         "id": 12,
-        "from": {
-            "date": "17",
-            "month": "february",
-            "year": "2014"
-        },
-        "to": {
-            "date": "24",
-            "month": "february",
-            "year": "2014"
-        }
+        "from": 1425859200000,
+        "to": 1426464000000
     },
     {
         "id": 13,
         "soldOut": true,
-        "from": {
-            "date": "24",
-            "month": "february",
-            "year": "2014"
-        },
-        "to": {
-            "date": "31",
-            "month": "february",
-            "year": "2014"
-        }
+        "from": 1426464000000,
+        "to": 1427068800000
     },
     {
         "id": 14,
-        "from": {
-            "date": "31",
-            "month": "february",
-            "year": "2014"
-        },
-        "to": {
-            "date": "07",
-            "month": "march",
-            "year": "2014"
-        }
+        "from": 1427068800000,
+        "to": 1427673600000
     }
 
     ],

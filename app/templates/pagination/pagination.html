@@ -2,7 +2,7 @@
 
     <a ng-href="#/{{ tripName }}/{{ page.label }}"
         ng-repeat="page in pages" 
-        ng-if="$index < currentPageIndex">
+        ng-if="$index < currentPageIndex && currentPageIndex < pages.length-1">
         <span ng-class="{ completed: $index < currentPageIndex }">{{ $index+1 }}</span>
         {{ page.label }}
     </a>
@@ -10,7 +10,7 @@
     <div 
         ng-repeat="page in pages" 
         ng-class="{ active: page.label === currentPage }"
-        ng-if="$index >= currentPageIndex">
+        ng-if="$index >= currentPageIndex || currentPageIndex === pages.length-1">
         <span>{{ $index+1 }}</span>{{ page.label }}
     </div>
 
