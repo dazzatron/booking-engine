@@ -53,4 +53,31 @@ function ($location, $scope, SharedResource, $rootScope) {
 
     });
 
+    // create grand total
+    $scope.$watch('SharedResource.sharedData.trip',
+
+            function (newValue, oldValue) {
+
+                if (newValue) {
+
+                    // start with trip cost
+                    var grandTotal = SharedResource.sharedData.trip.totalGuestCost;
+
+                    // loop through tours
+                    for (var i = 0, length = $scope.SharedResource.sharedData.trip.tours.length; i < length; i++) {
+
+                        if ($scope.SharedResource.sharedData.trip.tours[i].selected) {
+                            grandTotal += $scope.SharedResource.sharedData.trip.tours[i].perPerson * SharedResource.sharedData.trip.totalGuests;
+                        }
+
+                    };
+
+                    // set value
+                    SharedResource.sharedData.trip.grandTotal = grandTotal;
+
+                }
+
+            }, true);
+
+
 }]);

@@ -27,7 +27,7 @@
             {{ tour.days }} days<br />
             <br />
             Per person: {{ tour.perPerson | currency }}<br />
-            Total for all {{ sharedResource.sharedData.trip.totalGuests }} travellers: 
+            Total for all travellers: 
 
             {{ tour.perPerson * SharedResource.sharedData.trip.totalGuests | currency }}
 

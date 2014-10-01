@@ -8,3 +8,9 @@
     text-transform:uppercase;
     margin:20px 0;
 }
+
+.confirmation-total {
+    padding-top:5px;
+    margin-top:5px;
+    border-top:1px dashed #ccc;
+}

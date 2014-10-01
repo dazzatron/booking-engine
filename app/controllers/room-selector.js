@@ -81,7 +81,7 @@
 
         function (newValue, oldValue) {
 
-            if (newValue) {
+            if (newValue && !$scope.SharedResource.sharedData.trip.rooms) {
 
                 // empty rooms array to store rooms added.
                 $scope.SharedResource.sharedData.trip.rooms = [];
