@@ -20,8 +20,11 @@ body {
     font-family: Conv_Nobel-Regular, Arial;
     color:#555;
     font-size:13px;
+    overflow:hidden;
     overflow-y:scroll;
 }
+
+
 
 * {
     box-sizing:border-box;
