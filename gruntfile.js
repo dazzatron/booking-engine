@@ -19,7 +19,7 @@
                     sourceMap: true
                 },
                 files: {
-                    'main.min.js': ['../js/vendor/angular.min.js', '../js/vendor/angular-route.min.js', '../js/vendor/angular-animate.min.js', '../js/vendor/angular-local-storage.min.js', 'app/app.js', 'app/controllers/*.js', 'app/directives/*.js', 'app/filters/*.js', 'app/services/*.js']
+                    'main.min.js': ['js/vendor/angular.min.js', 'js/vendor/angular-route.min.js', 'js/vendor/angular-animate.min.js', 'js/vendor/angular-local-storage.min.js', 'app/app.js', 'app/controllers/*.js', 'app/directives/*.js', 'app/filters/*.js', 'app/services/*.js']
                 }
             }
         },
@@ -61,7 +61,7 @@
                 }
             },
             uglify: {
-                files: ['../js/vendor/*.js', 'app/app.js', 'app/**/*.js'],
+                files: ['js/vendor/*.js', 'app/app.js', 'app/**/*.js'],
                 tasks: ['uglify']
             },
             //ngtemplates: {

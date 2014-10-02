@@ -11,7 +11,6 @@ function ($scope, $location, SharedResource) {
 
         // set flag
         tour.selected = !tour.selected;
-        tour.totalTourCost = tour.perPerson * SharedResource.sharedData.trip.totalGuests;
 
     };
 

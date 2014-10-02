@@ -19,8 +19,8 @@
 "trip": {
     "country": "japan",
     "name": "passport to the world",
-    "headerImage": "/img/japan-header.jpg",
-    "countryImage": "/img/japan-passport.jpg",
+    "headerImage": "img/japan-header.jpg",
+    "countryImage": "img/japan-passport.jpg",
     "duration": 7,
     "maxGroupSize": 18,
     "pricesFrom": 2000,
@@ -53,7 +53,7 @@
 			"id": 1000,
 			"type": "pre",
             "title": "todaiji temple tour",
-            "image": "/img/todaiji-temple.jpg",
+            "image": "img/todaiji-temple.jpg",
             "days": 4,
             "perPerson": 1000,
 			"information": "Tōdai-ji (東大寺?, Eastern Great Temple),[1] is a Buddhist temple complex, that was once one of the powerful Seven Great Temples, located in the city of Nara, Japan. Its Great Buddha Hall (大仏殿 Daibutsuden?), houses the world's largest bronze statue of the Buddha Vairocana,[2] known in Japanese simply as Daibutsu (大仏?). The temple also serves as the Japanese headquarters of the Kegon school of Buddhism. The temple is a listed UNESCO World Heritage Site as 'Historic Monuments of Ancient Nara', together with seven other sites including temples, shrines and places in the city of Nara. Sika deer, regarded as messengers of the gods in the Shinto religion, roam the grounds freely."
@@ -62,7 +62,7 @@
 			"id": 1001,
 			"type": "post",
             "title": "mount fuji trek",
-            "image": "/img/mount-fuji.jpg",
+            "image": "img/mount-fuji.jpg",
             "days": 6,
             "perPerson": 2000,
 			"information": "Mount Fuji (富士山 Fujisan?, IPA: [ɸɯꜜdʑisaɴ] ( listen)), located on Honshu Island, is the highest mountain in Japan at 3,776.24 m (12,389 ft). An active stratovolcano that last erupted in 1707–08, Mount Fuji lies about 100 kilometres (60 mi) south-west of Tokyo, and can be seen from there on a clear day. Mount Fuji's exceptionally symmetrical cone, which is snow-capped several months a year, is a well-known symbol of Japan and it is frequently depicted in art and photographs, as well as visited by sightseers and climbers. It is one of Japan's 'Three Holy Mountains' (三霊山 Sanreizan?) along with Mount Tate and Mount Haku; it is a Special Place of Scenic Beauty, a Historic Site, and was added to the World Heritage List as a Cultural Site on June 22, 2013."

@@ -50,7 +50,6 @@
 }*/
 
 .room-wrapper {
-    transform-origin:0 0;
     border-bottom:1px dotted #ccc;
     z-index:1;
     position:relative;
@@ -59,15 +58,15 @@
 
 .room-wrapper.ng-enter {
     -webkit-transition: all 200ms 200ms;
-    -webkit-transform: translateX(-5%);
+    -webkit-transform: scale(1.05);
     transition: all 200ms 200ms;
-    transform: translateX(-5%);
+    transform: scale(1.05);
     opacity:0;
 }
  
 .room-wrapper.ng-enter-active {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    -webkit-transform: scale(1);
+    transform: scale(1);
     opacity:1;
 }
 
