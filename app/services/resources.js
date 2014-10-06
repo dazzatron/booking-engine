@@ -18,7 +18,7 @@
             url: 'app/json/country-trips.json'
         }).success(function (data) {
 
-            angular.forEach(data.countries, function (country) { // change this for a non angular loop pls!
+            angular.forEach(data.countries, function (country) { 
 
                 // select current country
                 if (country.name === sharedData.trip.country) {
@@ -26,7 +26,7 @@
                     data.selectedCountry = country;
 
                     // select current trip
-                    angular.forEach(country.trips, function (trip) { // change this for a non angular loop pls!
+                    angular.forEach(country.trips, function (trip) { 
 
                         if (trip === sharedData.trip.name) {
                             country.selectedTrip = trip;
@@ -45,7 +45,6 @@
             });
 
         }).error(function () {
-            // put in errors system
             alert("Sorry, an error occurred");
         });
 

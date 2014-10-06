@@ -1,8 +1,8 @@
 ﻿angular.module('jmd.controllers', [])
 
 .controller('jmdBookingEngineController',
-['$location', '$scope', 'SharedResource', '$rootScope',
-function ($location, $scope, SharedResource, $rootScope) {
+['$location', '$scope', 'SharedResource', '$rootScope', 'localStorageService',
+function ($location, $scope, SharedResource, $rootScope, localStorageService) {
 
     $scope.SharedResource = SharedResource;
 
@@ -20,7 +20,7 @@ function ($location, $scope, SharedResource, $rootScope) {
 
         $("html, body").animate({ scrollTop: 0 }, 200);
 
-        /// show loading animation
+        // show loading animation
         SharedResource.sharedData.reloading = true;
 
     });
@@ -46,19 +46,70 @@ function ($location, $scope, SharedResource, $rootScope) {
 
         }
 
+        // all paid, dont allow back
+        //if (SharedResource.sharedData.trip.completed) {
+
+        //}
+
+        // set flag saying completed.
+        //if ($scope.currentPageIndex === $scope.pages.length) {
+        //    SharedResource.sharedData.trip.completed = true;
+        //}
+
         if (!$scope.init) {
+
             $scope.init = true;
-            $scope.SharedResource.getTrip($scope.tripName);
+
+            //var ibe = localStorageService.get('ibe');
+
+            //if (ibe) {
+            //    SharedResource.sharedData = ibe;
+            //    SharedResource.sharedData.reloading = false;
+            //} else {
+                $scope.SharedResource.getTrip($scope.tripName);
+            //}
+
         }
 
     });
 
-    // create grand total
+    //$scope.$watch('SharedResource.sharedData',
+
+    //        function (newValue, oldValue) {
+
+    //            if (newValue) {
+
+    //                // LS
+    //                localStorageService.set('ibe', newValue);
+
+    //            }
+    //        }, true);
+
+
+    // summary scroll
+    //$(window).scroll(function () {
+
+    //    var me = $(this);
+    //    var scrollTop = me.scrollTop();
+
+    //    if (scrollTop > $('.col-summary').offset().top) {
+    //        $('.col-summary').addClass('fixed');
+    //    } else {
+    //        $('.col-summary').removeClass('fixed');
+    //    }
+
+    //});
+
     $scope.$watch('SharedResource.sharedData.trip',
 
             function (newValue, oldValue) {
 
                 if (newValue) {
+
+
+
+                    // LS
+                    //localStorageService.set('trip', newValue);
 
                     // start with trip cost
                     var grandTotal = SharedResource.sharedData.trip.totalGuestCost;
@@ -70,7 +121,7 @@ function ($location, $scope, SharedResource, $rootScope) {
                             grandTotal += $scope.SharedResource.sharedData.trip.tours[i].perPerson * SharedResource.sharedData.trip.totalGuests;
                         }
 
-                    };
+                    }
 
                     // set value
                     SharedResource.sharedData.trip.grandTotal = grandTotal;

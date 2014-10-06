@@ -62,15 +62,8 @@ float:right;
 }
 
 .page-wrapper {
-    width:960px;
-    margin:30px auto;  
-    opacity:0;
-}
-
-.page-wrapper.active {
-    -webkit-transition: 500ms 500ms all;
-    transition: 500ms 500ms all;
-    opacity:1;
+    width: 960px;
+    margin: 30px auto;
 }
 
 .page-wrapper img {
@@ -129,7 +122,8 @@ select, input {
 
 .call-to-action:hover {
     text-decoration:none;
-    color:#666;
+    color:#fc0 !important;
+    background:#333;
 }
 
 .call-to-action span {
@@ -151,6 +145,8 @@ select, input {
 .general-action:hover {
     color:#000;
     text-decoration:none;
+    -webkit-transition: all 400ms;
+    transition: all 400ms;
 }
 
 .general-action-2 {
@@ -165,8 +161,10 @@ select, input {
 }
 
 .general-action-2:hover {
-    color:#666;
+    border-color:#333;
     text-decoration:none;
+    -webkit-transition: all 400ms;
+    transition: all 400ms;
 }
 
 hr {
@@ -188,6 +186,11 @@ hr {
     width:240px;
     float:right;
     padding: 20px 0 20px 20px;
+}
+
+.col-summary.fixed {
+    position:fixed;
+    top:0;
 }
 
 .col-summary select {

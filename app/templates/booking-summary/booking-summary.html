@@ -172,12 +172,12 @@
 
     <div class="clearfix">
 
-        <a ng-if="nextPage.label && !bookingform.$invalid" ng-href="#/{{ tripName }}/{{ nextPage.label }}"
+        <a ng-if="SharedResource.sharedData.trip.valid && !bookingform.$invalid" ng-href="#/{{ tripName }}/{{ nextPage.label }}"
             class="call-to-action float-right">CONTINUE <span class="icon icon-arrow-right"></span>
         </a>
 
-        <div ng-show="bookingform.$invalid" class="warning">
-            Please complete form before continuning.
+        <div ng-if="bookingform.$invalid || !SharedResource.sharedData.trip.valid" class="warning">
+            Please complete the form before continuning, ensuring all errors are resolved. 
         </div>
 
     </div>

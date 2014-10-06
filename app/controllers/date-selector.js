@@ -34,7 +34,7 @@
                     if (SharedResource.sharedData.trip.dates[i].selected) {
                         dateSelected = true;
                         break;
-                    };
+                    }
 
                 }
 

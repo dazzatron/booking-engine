@@ -20,7 +20,7 @@
 
         <div class="room-wrapper" ng-repeat="room in SharedResource.sharedData.trip.rooms" ng-form="bookingform">
 
-            <div class="room-error-wrapper" ng-if="room.selectedRoom.totalGuests > room.selectedRoom.maxPeople">
+            <div class="room-error-wrapper" ng-if="(room.selectedRoom.adults + room.selectedRoom.children) > room.selectedRoom.maxPeople">
 
                 <div class="room-error">
                     <span>A maximum of<b> {{ room.selectedRoom.maxPeople }} </b>
@@ -52,8 +52,10 @@
 
                     <select
                         ng-model="room.selectedRoom"
-                        ng-options="room as room.name for room in room.roomOptions">
-                    </select>
+                        ng-options="room as room.name for room in room.roomOptions track by room.id">
+                    </select> 
+                    
+                    <!--(max {{ room.selectedRoom.maxPeople }} persons)-->
 
                 </div>
 
@@ -67,16 +69,26 @@
                     <br />
                     <br />
 
-                    <!--<select
+                    <select
                         ng-model="room.selectedRoom.adults"
-                        ng-options="adults as adults for adults in room.selectedRoom.adultOptions">
-                    </select>-->
+                        ng-options="adults as adults for adults in room.selectedRoom.maxAdults">
+                    </select>
 
-                    <input 
+<!--                    <input 
                         ng-model="room.selectedRoom.adults" 
                         type="number" 
                         max="{{ room.selectedRoom.maxAdults }}" 
-                        min="1" />
+                        min="1" />-->                    
+
+<!--                    {{ room.selectedRoom.adults }} 
+                    
+                    <button ng-click="addPerson(room.selectedRoom, 'adult', $index)">
+                        +
+                    </button>
+
+                    <button ng-click="removePerson(room.selectedRoom, 'adult', $index)">
+                        -
+                    </button>-->
 
                 </div>
 
@@ -90,16 +102,26 @@
                     <br />
                     <br />
 
-                    <!--<select
+                    <select
                         ng-model="room.selectedRoom.children"
-                        ng-options="children as children for children in room.selectedRoom.childOptions">
-                    </select>-->
+                        ng-options="children as children for children in room.selectedRoom.maxChildren">
+                    </select>
 
-                    <input 
+<!--                    <input 
                         ng-model="room.selectedRoom.children" 
                         type="number"
                         max="{{ room.selectedRoom.maxChildren }}" 
-                        min="0" />
+                        min="0" />-->
+
+<!--                    {{ room.selectedRoom.children }} 
+                    
+                    <button ng-click="addPerson(room.selectedRoom, 'child', $index)">
+                        +
+                    </button>
+
+                    <button ng-click="removePerson(room.selectedRoom, 'child', $index)">
+                        -
+                    </button>-->
 
                 </div>
 
