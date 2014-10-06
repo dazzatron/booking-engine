@@ -13,40 +13,44 @@
         // scroll page to top
         $("html, body").animate({ scrollTop: 0 }, 500);
 
-        $http({
-            method: 'GET',
-            url: 'app/json/country-trips.json'
-        }).success(function (data) {
+        $timeout(function () {
 
-            angular.forEach(data.countries, function (country) { 
+            $http({
+                method: 'GET',
+                url: 'app/json/country-trips.json'
+            }).success(function (data) {
 
-                // select current country
-                if (country.name === sharedData.trip.country) {
+                angular.forEach(data.countries, function (country) {
 
-                    data.selectedCountry = country;
+                    // select current country
+                    if (country.name === sharedData.trip.country) {
 
-                    // select current trip
-                    angular.forEach(country.trips, function (trip) { 
+                        data.selectedCountry = country;
 
-                        if (trip === sharedData.trip.name) {
-                            country.selectedTrip = trip;
-                        }
+                        // select current trip
+                        angular.forEach(country.trips, function (trip) {
 
-                    });
+                            if (trip === sharedData.trip.name) {
+                                country.selectedTrip = trip;
+                            }
 
-                } else {
-                    // otherwise it's always the first on the list
-                    country.selectedTrip = country.trips[0];
-                }
+                        });
 
-                // set data object
-                sharedData.countryTrips = data;
+                    } else {
+                        // otherwise it's always the first on the list
+                        country.selectedTrip = country.trips[0];
+                    }
 
+                    // set data object
+                    sharedData.countryTrips = data;
+
+                });
+
+            }).error(function () {
+                alert("Sorry, an error occurred");
             });
 
-        }).error(function () {
-            alert("Sorry, an error occurred");
-        });
+        }, 2000);
 
     };
 
@@ -54,7 +58,7 @@
 
         sharedData.reloading = true;
 
-        //$timeout(function () {
+        $timeout(function () {
 
             $http({
                 method: 'GET',
@@ -72,7 +76,7 @@
                 alert("Sorry, an error occurred");
             });
 
-        //}, 1000);
+        }, 1000);
 
     };
 
