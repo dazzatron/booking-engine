@@ -5,7 +5,7 @@
     // object to hold data over the entire application. 
     var sharedData = {};
 
-    getCountryTrips = function () {
+    var getCountryTrips = function () {
 
         // clear
         sharedData.countryTrips = undefined;
@@ -54,7 +54,7 @@
 
     };
 
-    getTrip = function (tripName) {
+    var getTrip = function (tripName) {
 
         sharedData.reloading = true;
 
