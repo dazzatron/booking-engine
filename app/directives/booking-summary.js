@@ -10,6 +10,8 @@
               var windowHeight;
               var height;
               var top;
+              var elem = $(element);
+              var id = scope.$id;
 
               // scroll function
               var scroll = function () {
@@ -23,12 +25,12 @@
                       if (windowTop > top) {
                           if (!fixed) {
                               fixed = true;
-                              $(element).addClass('fixed');
+                              elem.addClass('fixed');
                           }
                       } else {
                           if (fixed) {
                               fixed = false;
-                              $(element).removeClass('fixed');
+                              elem.removeClass('fixed');
                           }
                       }
 
@@ -37,18 +39,18 @@
                   else {
                       // add functionality for small screens?
                       fixed = false;
-                      $(element).removeClass('fixed');
+                      elem.removeClass('fixed');
                   }
 
               };
 
               // add scroller
-              $(window).on('scroll.bookingSummary', function () {
+              $(window).on('scroll.bookingSummary.' + id, function () {
                   scroll();
               });
 
               // reset
-              $(window).on('resize.bookingSummary', function () {
+              $(window).on('resize.bookingSummary.' + id, function () {
                   windowHeight = $(window).height();
                   scroll();
               });
@@ -59,13 +61,13 @@
                   if (val) {
 
                       // do we put these here!?
-                      top = top || $(element).offset().top; // never needs to change
-                      windowHeight = windowHeight || $(window).height(); // never needs to change
+                      top = top || elem.offset().top; // never needs to change
+                      windowHeight = windowHeight || $(window).height(); 
 
                       // if the model changes, the height changes, probably ;)
                       // timeout to allow DOM change
                       $timeout(function () {
-                          height = $(element).outerHeight();
+                          height = elem.outerHeight();
                       }, 0);
 
                   }
@@ -74,8 +76,8 @@
 
               // clean up jquery 
               scope.$on('$destroy', function () {
-                  $(window).off('resize.bookingSummary');
-                  $(window).off('scroll.bookingSummary');
+                  $(window).off('resize.bookingSummary.' + id);
+                  $(window).off('scroll.bookingSummary.' + id);
               });
 
           }
