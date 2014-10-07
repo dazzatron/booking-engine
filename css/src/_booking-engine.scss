@@ -1,10 +1,4 @@
-﻿/* 
-  Allow angular.js to be loaded in body, hiding cloaked elements until 
-  templates compile.  The !important is important given that there may be 
-  other selectors that are more specific or come later and might alter display.  
- */
-
-[ng\:cloak], [ng-cloak], .ng-cloak {
+﻿[ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
 }
  
@@ -24,8 +18,6 @@ body {
     overflow-y:scroll;
 }
 
-
-
 * {
     box-sizing:border-box;
 }
@@ -35,22 +27,24 @@ h1, h2, h3, h4, h5 {
 }
 
 .top-links {
+
     font-size:15px;
     margin: 0 -10px 10px
-}
 
-.top-links a {
-    color:#000;
-    background:#eee;
-    padding:5px 10px;
+	a {
+		color:#000;
+		background:#eee;
+		padding:5px 10px;
+	}
+
 }
 
 .float-left {
-float:left;
+	float:left;
 }
 
 .float-right {
-float:right;
+	float:right;
 }
 
 .general-info {
@@ -64,13 +58,15 @@ float:right;
 .page-wrapper {
     width: 960px;
     margin: 30px auto;
-}
 
-.page-wrapper img {
-    max-width:100%;
+	img {
+		max-width:100%;
+	}
+
 }
 
 .page-mask {
+
     background:#fff;
     background:rgba(255,255,255,.75);
     position:fixed;
@@ -82,24 +78,25 @@ float:right;
     display:table;
     color:#666;
     font-size:12px;
-}
 
-.page-mask.ng-leave {
-    -webkit-transition: all 500ms;
-    transition: all 500ms;
-    opacity:1;
-}
+	&.ng-leave {
+		-webkit-transition: all 500ms;
+		transition: all 500ms;
+		opacity:1;
+	}
 
-.page-mask.ng-leave-active {
-    -webkit-transform:scale(1.1);
-    transform:scale(1.1);
-    opacity:0; 
-}
+	&.ng-leave-active {
+		-webkit-transform:scale(1.1);
+		transform:scale(1.1);
+		opacity:0; 
+	}
 
-.page-mask > div {
-    display:table-cell;
-    vertical-align:middle;
-    text-align:center;
+	> div {
+		display:table-cell;
+		vertical-align:middle;
+		text-align:center;
+	}
+
 }
 
 select, input {
@@ -108,8 +105,8 @@ select, input {
     font-size:12px;
 }
 
-
 .call-to-action {
+
     color:#333 !important;
     padding:0 15px;
     font-weight:bold;
@@ -118,16 +115,17 @@ select, input {
     border:none;
     height:30px;
     line-height:30px;
-}
 
-.call-to-action:hover {
-    text-decoration:none;
-    color:#fc0 !important;
-    background:#333;
-}
+	&:hover {
+		text-decoration:none;
+		color:#fc0 !important;
+		background:#333;
+	}
 
-.call-to-action span {
-    margin-left:5px;
+	span {
+		margin-left:5px;
+	}
+
 }
 
 .general-action {
@@ -140,13 +138,14 @@ select, input {
     display:inline-block;
     height:16px;
     line-height:16px;
-}
 
-.general-action:hover {
-    color:#000;
-    text-decoration:none;
-    -webkit-transition: all 400ms;
-    transition: all 400ms;
+	&:hover {
+		color:#000;
+		text-decoration:none;
+		-webkit-transition: all 400ms;
+		transition: all 400ms;
+	}
+
 }
 
 .general-action-2 {
@@ -158,13 +157,15 @@ select, input {
     color:#333;
     height:25px;
     line-height:18px;
-}
 
-.general-action-2:hover {
-    border-color:#333;
-    text-decoration:none;
-    -webkit-transition: all 400ms;
-    transition: all 400ms;
+
+	&:hover {
+		border-color:#333;
+		text-decoration:none;
+		-webkit-transition: all 400ms;
+		transition: all 400ms;
+	}
+
 }
 
 hr {
@@ -183,63 +184,71 @@ hr {
 }
 
 .col-summary {
+
     width:240px;
     float:left;
-}
 
-.col-summary select {
-    width:100%;
-}
+	select {
+		width:100%;
+	}
 
-.col-summary h1 {
-    background:#000;
-    color:#fff;
-    font-size:16px;
-    text-align:center;
-    padding:2px 0;
-    margin-bottom:0;
-}
+	h1 {
+		background:#000;
+		color:#fff;
+		font-size:16px;
+		text-align:center;
+		padding:2px 0;
+		margin-bottom:0;
+	}
 
-.col-summary h2 {
-    font-size:16px;
-    text-transform:capitalize;
-    margin:0;
-}
+	h2 {
+		font-size:16px;
+		text-transform:capitalize;
+		margin:0;
+	}
 
-.col-summary h3 {
-    text-transform:uppercase;
-}
+	h3 {
+		text-transform:uppercase;
+	}
 
-.col-summary hr {
-    width:100%;
-    margin:10px 0;
-}
+	hr {
+		width:100%;
+		margin:10px 0;
+	}
 
-.float-left {
-float:left;
-}
-
-.float-right {
-float:right;
 }
 
 a {
-    text-decoration:none;
-}
 
-a:hover {
-    text-decoration:underline;
+    text-decoration:none;
+
+	&:hover {
+		text-decoration:underline;
+	}
+
 }
 
 .booking-engine-header {
+
     height:240px;
     position:relative;
     margin:0 -10px;
-}
 
-.booking-engine-header img {
-    height:100%;
-    width:100%;
+	img {
+		height:100%;
+		width:100%;
+	}
+
+	&:after {
+		content:"";
+		position:absolute;
+		left:0;
+		top:0;
+		height:100%;
+		width:50%;
+		@include background-image(linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1)));
+	}
+
 }
 
 .booking-engine-title {
@@ -253,22 +262,6 @@ a:hover {
     z-index:1;
     text-shadow: 0 0 5px #000, 0 5px 10px #000;
     text-transform:uppercase;
-}
-
-
-.booking-engine-header:after {
-    content:"";
-    position:absolute;
-    left:0;
-    top:0;
-    height:100%;
-    width:50%;
-    background: -moz-linear-gradient(left,  rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,.8)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left,  rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left,  rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(left,  rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
-    background: linear-gradient(to right,  rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 100%); /* W3C */
 }
 
 .fade.ng-enter, .fade.ng-leave-active {
