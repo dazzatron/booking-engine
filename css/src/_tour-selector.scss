@@ -78,9 +78,7 @@
 		position:absolute;
 		top:0;
 		left:0;
-		-webkit-transition: top 500ms;
-		-moz-transition: top 500ms;
-		transition: top 500ms;
+		@include transition(top 500ms);
 	}
 
 }

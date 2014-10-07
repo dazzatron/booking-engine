@@ -33,8 +33,7 @@
     height:50px;
     line-height:40px;
     cursor:pointer;
-    -webkit-transition: all 500ms;
-    transition: all 500ms;
+    @include transition(all 500ms);
     padding:5px;
 
 	label {

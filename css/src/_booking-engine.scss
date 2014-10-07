@@ -80,14 +80,12 @@ h1, h2, h3, h4, h5 {
     font-size:12px;
 
 	&.ng-leave {
-		-webkit-transition: all 500ms;
-		transition: all 500ms;
+		@include transition(all 500ms);
 		opacity:1;
 	}
 
 	&.ng-leave-active {
-		-webkit-transform:scale(1.1);
-		transform:scale(1.1);
+		@include transform(scale(1.1));
 		opacity:0; 
 	}
 
@@ -142,8 +140,7 @@ select, input {
 	&:hover {
 		color:#000;
 		text-decoration:none;
-		-webkit-transition: all 400ms;
-		transition: all 400ms;
+		@include transition(all 400ms);
 	}
 
 }
@@ -162,8 +159,7 @@ select, input {
 	&:hover {
 		border-color:#333;
 		text-decoration:none;
-		-webkit-transition: all 400ms;
-		transition: all 400ms;
+		@include transition(all 400ms);
 	}
 
 }
@@ -265,15 +261,12 @@ a {
 }
 
 .fade.ng-enter, .fade.ng-leave-active {
-    -webkit-transition: all 500ms;
-    transition: all 500ms;
-    -webkit-transform: translateY(5px);
-    transform: translateY(5px);
+    @include transition(all 500ms);
+    @include transform(translateY(5px));
     opacity:0;
 }
  
 .fade.ng-enter-active, .fade.ng-leave {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    @include transform(translateY(0));
     opacity:1;
 }

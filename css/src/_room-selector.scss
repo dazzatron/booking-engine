@@ -61,21 +61,17 @@
 	}
 
 	&.ng-enter {
-		-webkit-transition: all 200ms 200ms;
-		-webkit-transform: scale(1.05);
-		transition: all 200ms 200ms;
-		transform: scale(1.05);
+		@include transition(all 200ms 200ms);
+		@include transform(scale(1.05));
 		opacity:0;
 	}
 
 	&.ng-enter-active {
-		-webkit-transform: scale(1);
-		transform: scale(1);
+		@include transform(scale(1));
 		opacity:1;
 	}
 
 }
-
 
 .room-error-wrapper {
     position:absolute;
@@ -101,22 +97,17 @@
 		background:#fee;
 		border-bottom:2px solid #f00;
 		border-left:2px solid #f00;
-		-ms-transform: rotateZ(45deg);
-		-webkit-transform: rotateZ(45deg);
-		transform: rotateZ(45deg);
+		@include transform(rotateZ(45deg));
 	}
 
 	&.ng-enter {
-		-webkit-transition: all 200ms;
-		-webkit-transform: translateX(10%);
-		transition: all 200ms;
-		transform: translateX(10%);
+		@include transition(all 200ms);
+		@include transform(translateX(10%));
 		opacity:0;
 	}
  
 	&.ng-enter-active {
-		-webkit-transform: translateX(0);
-		transform: translateX(0);
+		@include transform(translateX(0));
 		opacity:1;
 	}
 
@@ -211,9 +202,7 @@
 		background:#fee;
 		border-top:2px solid #f00;
 		border-left:2px solid #f00;
-		-ms-transform: rotateZ(45deg);
-		-webkit-transform: rotateZ(45deg);
-		transform: rotateZ(45deg);
+		@include transform(rotateZ(45deg));
 	}
 
 	&:after {
@@ -234,16 +223,13 @@
 	}
 
 	&.ng-enter {
-		-webkit-transition: all 500ms 500ms;
-		-webkit-transform: translateY(10%);
-		transition: all 500ms 500ms;
-		transform: translateY(10%);
+		@include transition(all 500ms 500ms);
+		@include transform(translateY(10%));
 		opacity:0;
 	}
  
 	&.ng-enter-active {
-		-webkit-transform: translateX(0);
-		transform: translateX(0);
+		@include transform(translateX(0));
 		opacity:1;
 	}
 
