@@ -184,13 +184,7 @@ hr {
 
 .col-summary {
     width:240px;
-    float:right;
-    padding: 20px 0 20px 20px;
-}
-
-.col-summary.fixed {
-    position:fixed;
-    top:0;
+    float:left;
 }
 
 .col-summary select {

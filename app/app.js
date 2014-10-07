@@ -9,6 +9,7 @@
    'jmd.dateSummary',
    'jmd.roomSelector',
    'jmd.tourSelector',
+   'jmd.bookingSummary',
    'ngAnimate'
 ])
 
