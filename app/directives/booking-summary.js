@@ -73,7 +73,7 @@
               });
 
               // clean up
-              $scope.$on('$destroy', function () {
+              scope.$on('$destroy', function () {
                   $(window).off('resize.bookingSummary');
                   $(window).on('scroll.bookingSummary');
               });
