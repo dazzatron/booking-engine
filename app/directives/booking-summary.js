@@ -72,7 +72,7 @@
 
               });
 
-              // clean up
+              // clean up jquery 
               scope.$on('$destroy', function () {
                   $(window).off('resize.bookingSummary');
                   $(window).off('scroll.bookingSummary');
