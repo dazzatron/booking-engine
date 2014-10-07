@@ -1,30 +1,33 @@
 ﻿.date-selector-wrapper {
+
     font-size:12px;
     border-top:4px solid #ccc;
     margin-bottom:30px;
-}
 
-.date-selector-wrapper h1 {
-    font-size:15px;
-    margin:0;
-    text-transform:uppercase;
-}
+	h1 {
+		font-size:15px;
+		margin:0;
+		text-transform:uppercase;
+	}
 
-.date-selector-wrapper h2 {
-    font-size:11px;
-    margin:0;
-    font-weight:normal;
-    text-transform:uppercase;
-}
+	h2 {
+		font-size:11px;
+		margin:0;
+		font-weight:normal;
+		text-transform:uppercase;
+	}
 
-.date-selector-wrapper h3 {
-    font-size:11px;
-    margin:0;
-    font-weight:normal;
-    color:#799411;
+	h3 {
+		font-size:11px;
+		margin:0;
+		font-weight:normal;
+		color:#799411;
+	}
+
 }
 
 .date-selector-date {
+
     background:#eee;
     margin-top:20px;
     height:50px;
@@ -33,6 +36,19 @@
     -webkit-transition: all 500ms;
     transition: all 500ms;
     padding:5px;
+
+	label {
+		cursor:pointer;
+	}
+
+	&.active {
+		background:#ddd;
+	}
+
+	input {
+		height:40px;
+	}
+
 }
 
 .date-selector-date-wrapper {
@@ -82,18 +98,6 @@
     text-align:center;
     display:inline-block;
     color:#eee;
-}
-
-.date-selector-date label {
-    cursor:pointer;
-}
-
-.date-selector-date.active {
-    background:#ddd;
-}
-
-.date-selector-date input {
-    height:40px;
 }
 
 .date-selector-date-message {

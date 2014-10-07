@@ -1,0 +1,250 @@
+﻿.rooms-wrapper {
+
+    margin: 20px auto 0;
+    font-size:13px;
+    border-top:1px dashed #ccc;
+	
+	a {
+		border:0;
+		color:#666;
+		line-height:20px;
+		height:20px;
+		display:inline-block;
+		vertical-align:top;
+	
+		&:hover {
+			text-decoration:underline;
+		}
+
+	}
+
+	h1 {
+		font-size:15px;
+		margin:0;
+		text-transform:uppercase;
+	}
+
+	h2 {
+		font-size:11px;
+		margin:0;
+		font-weight:normal;
+		text-transform:uppercase;
+	}
+
+}
+
+.rooms-header {
+    padding:15px 0;
+    position:relative;
+    overflow:hidden;
+    background:#fff;
+}
+
+.room-wrapper {
+
+    border-bottom:1px dotted #ccc;
+    z-index:1;
+    position:relative;
+    background:#eee;
+
+	button {
+		border: 1px solid #aaa;
+		background: #fff;
+		height: 15px;
+		width: 15px;
+		text-align: center;
+		line-height: 12px;
+		border-radius: 50%;
+		margin-left: 2px;
+		outline: 0!important;
+		padding: 0;       
+	}
+
+	&.ng-enter {
+		-webkit-transition: all 200ms 200ms;
+		-webkit-transform: scale(1.05);
+		transition: all 200ms 200ms;
+		transform: scale(1.05);
+		opacity:0;
+	}
+
+	&.ng-enter-active {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity:1;
+	}
+
+}
+
+
+.room-error-wrapper {
+    position:absolute;
+    top:0;
+    left:100%;
+    background:#fee;
+    border:solid 2px #f00;
+    color:#333;
+    padding:10px;
+    height:100%;
+    width:20%;
+    font-weight:normal;
+    box-shadow:1px 1px 0 1px #fff;
+
+	&:before {
+		content:"";
+		position:absolute;
+		left:-7px;
+		top:50%;
+		width: 10px;
+		height: 10px;
+		margin-top:-7px; 
+		background:#fee;
+		border-bottom:2px solid #f00;
+		border-left:2px solid #f00;
+		-ms-transform: rotateZ(45deg);
+		-webkit-transform: rotateZ(45deg);
+		transform: rotateZ(45deg);
+	}
+
+	&.ng-enter {
+		-webkit-transition: all 200ms;
+		-webkit-transform: translateX(10%);
+		transition: all 200ms;
+		transform: translateX(10%);
+		opacity:0;
+	}
+ 
+	&.ng-enter-active {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+		opacity:1;
+	}
+
+}
+
+.room-error {
+
+    display:table;
+    height:100%;
+
+	&:after {
+		content: "!";
+		position: absolute;
+		right: 0;
+		top: 0;
+		margin-top: -12px;
+		margin-right: -12px;
+		width: 20px;
+		height: 20px;
+		background: #ffeda6;
+		border-radius: 50%;
+		border: 2px solid #fc0;
+		text-align: center;
+		font-size: 14px;
+	}
+
+	span {
+		display:table-cell;
+		vertical-align:middle;
+	}
+
+}
+
+
+.room {
+
+    padding:15px;
+    position:relative;
+
+	div {
+		float:left;
+		width:33.333%;
+	}
+
+}
+
+.rooms-footer {
+    padding:15px;
+    background:#eee;
+    line-height:20px;
+    position:relative;
+}
+
+.room-add {
+    background:#fc0;
+    border-radius:50%;
+    height:20px;
+    width:20px;
+    line-height:20px;
+    text-align:center;
+    margin-right:5px;
+    display:inline-block;
+    font-size:20px;
+    color:#fff;
+}
+
+.room-remove {
+    position:absolute;
+    right:10px;
+    bottom:20px;
+    color:#f00 !important;
+}
+
+.room-guests-error {
+    position:absolute;
+    top:100%;
+    right:0;
+    padding:10px;
+    background:#fee;
+    border: 2px solid #f00;
+    color:#333;
+    margin-bottom:50px;
+    font-weight:normal;
+
+	&:before {
+		content:"";
+		position:absolute;
+		right:15px;
+		top:-7px;
+		width: 10px;
+		height: 10px;
+		background:#fee;
+		border-top:2px solid #f00;
+		border-left:2px solid #f00;
+		-ms-transform: rotateZ(45deg);
+		-webkit-transform: rotateZ(45deg);
+		transform: rotateZ(45deg);
+	}
+
+	&:after {
+		content: "!";
+		position: absolute;
+		left: 0;
+		top: 0;
+		margin-top: -12px;
+		margin-left: -12px;
+		width: 20px;
+		height: 20px;
+		background: #ffeda6;
+		border-radius: 50%;
+		border: 2px solid #fc0;
+		color: #666;
+		text-align: center;
+		font-size: 14px;
+	}
+
+	&.ng-enter {
+		-webkit-transition: all 500ms 500ms;
+		-webkit-transform: translateY(10%);
+		transition: all 500ms 500ms;
+		transform: translateY(10%);
+		opacity:0;
+	}
+ 
+	&.ng-enter-active {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+		opacity:1;
+	}
+
+}

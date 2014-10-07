@@ -1,0 +1,56 @@
+﻿.pagination {
+
+    border-bottom:2px solid #ccc;
+    padding-bottom:20px;
+    font-weight:bold;
+    text-transform:uppercase;
+
+	a, div {
+		width:20%;
+		float:left;
+		color:#ccc;
+		font-size:12px;
+		background:none;
+		border:none;
+		text-align:left;
+		text-transform:uppercase;
+		outline:none;
+		font-weight:bold;
+	}
+
+	a:hover {
+		text-decoration:none;
+	}
+
+	.active {
+
+		color:#666;
+
+		span {
+			background:#333;
+			@include transform(scale(1.1));
+		}
+
+	}
+
+	span {
+
+		display:inline-block;
+		background:#ccc;
+		color:#fff;
+		border-radius:50%;
+		width:22px;
+		height:22px;
+		line-height:22px;
+		text-align:center;
+		margin-right:5px;
+		@include transition(all 500ms);
+		font-size:12px;
+
+		&.completed {
+			background:#fc0 !important;
+		}
+
+	}
+
+}

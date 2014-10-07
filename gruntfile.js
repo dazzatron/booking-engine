@@ -2,17 +2,18 @@
 
     grunt.initConfig({
 
-        cssmin: {
-            minify: {
-                src: [
-                    'css/src/normalize.css',
-                    'css/src/main.css',
-                    'css/src/*.css'],
-                dest: 'css/main.min.css/'
+        // sass/compass
+        compass: {
+            dev: {
+                options: {
+                    sassDir: 'css/src',
+                    cssDir: 'css',
+                    outputStyle: 'compressed'
+                }
             }
         },
 
-        // min
+        // js concat
         uglify: {
             minify: {
                 options: {
@@ -25,19 +26,19 @@
         },
 
         // angular unit tests
-        karma: {
-            unit: {
-                configFile: 'app/tests/karma.conf.js'
-            }
-        },
+        //karma: {
+        //    unit: {
+        //        configFile: 'app/tests/karma.conf.js'
+        //    }
+        //},
 
         // template caching
-        ngtemplates: {
-            jmdApp: {
-                src: 'app/templates/**/*.html',
-                dest: 'app/templates/templates.js'
-            }
-        },
+        //ngtemplates: {
+        //    jmdApp: {
+        //        src: 'app/templates/**/*.html',
+        //        dest: 'app/templates/templates.js'
+        //    }
+        //},
 
         // js syntax checking
         jshint: {
@@ -46,19 +47,13 @@
 
         // create a watcher for the above processes
         watch: {
-            concat: {
-                files: ['css/src/*.css'],
-                tasks: ['cssmin'],
-                options: {
-                    livereload: true,
-                }
+            sass: {
+                files: ['css/src/*.scss'],
+                tasks: ['compass']
             },
             jshint: {
                 files: ['app/**/*.js'],
-                tasks: ['jshint'],
-                options: {
-                    livereload: true,
-                }
+                tasks: ['jshint']
             },
             uglify: {
                 files: ['js/vendor/*.js', 'app/app.js', 'app/**/*.js'],
@@ -83,13 +78,13 @@
 
     });
 
-    grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-angular-templates');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-clear');
+    grunt.loadNpmTasks('grunt-contrib-compass');
+    //grunt.loadNpmTasks('grunt-karma');
+    //grunt.loadNpmTasks('grunt-angular-templates');
 
     grunt.registerTask('default', ['watch']);
 

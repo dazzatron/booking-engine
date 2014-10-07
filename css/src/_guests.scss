@@ -1,0 +1,107 @@
+﻿.guests-wrapper {
+    line-height:30px;
+}
+
+.guest-question {
+    border-radius:50%;
+}
+
+.guest-wrapper {
+
+    padding:20px 0;
+    border-bottom:1px solid #ccc;
+
+	input {
+
+		border:none;
+		background:#eee;
+		margin:0;
+		padding:0 5px;
+		height:30px;
+		width:100%;
+
+		&.ng-invalid.ng-dirty {
+			border: 1px solid #f00;
+			outline:none;
+		}
+
+		&.ng-valid.ng-dirty {
+			border: 1px solid #799411;
+			outline:none;
+		}
+
+	}
+
+	select {
+		border:1px #ccc solid;
+		background:#fff;
+		margin:0;
+		padding:0 5px;
+		height:30px;
+	}
+
+	textarea {
+		border:1px #ccc solid;
+		background:#fff;
+		margin:0;
+		padding:0 5px;
+		width:500px;
+		height:150px;
+	}
+
+	h2 {
+		margin:0;
+		padding:0;
+	}
+
+	article {
+		margin-bottom:20px;
+	}
+
+	.input-col {
+		width:280px;
+		float:left;
+		display:block;
+		margin: 0 10px;
+	}
+
+	label {
+		height:30px;
+		width:100%;
+	}
+
+	.label-col {
+		float:left;
+		display:block;
+		width:180px;
+		margin: 0 10px;
+	}
+
+	.msg-col {
+		float:left;
+		display:block;
+		width:200px;
+		margin: 0 10px;
+	}
+
+}
+
+.guests-info {
+    line-height:1.6;
+}
+
+.guests-help {
+    content: "?";
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: -12px;
+    margin-right: -12px;
+    width: 20px;
+    height: 20px;
+    background: #ffeda6;
+    border-radius: 50%;
+    border: 2px solid #fc0;
+    text-align: center;
+    font-size: 14px;
+}

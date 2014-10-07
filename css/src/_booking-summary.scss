@@ -1,27 +1,29 @@
 ﻿.booking-summary {
+
     padding: 20px 0 0 20px;
     margin: 0 20px;
     width: 220px;
     position:relative;
-}
 
-.booking-summary:before {
-    content:"";
-    position:absolute;
-    width:1px;
-    top:20px;
-    bottom:0;
-    left:0;
-    background:#ddd;
-}
+	&:before {
+		content:"";
+		position:absolute;
+		width:1px;
+		top:20px;
+		bottom:0;
+		left:0;
+		background:#ddd;
+	}
 
-.booking-summary a {
-    color:#999;
-}
+	a {
+		color:#999;
+	}
 
-.booking-summary.fixed {
-    position:fixed;
-    top:0;
+	&.fixed {
+		position:fixed;
+		top:0;
+	}
+
 }
 
 .booking-summary-date-wrapper {
