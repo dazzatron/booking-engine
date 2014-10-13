@@ -10,6 +10,26 @@
     font-style: normal;
 }
 
+.chromeframe {
+
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:999999;
+	padding:20px;
+	background:#fff;
+	font-size:15px;
+	text-align:center;
+
+	a {
+		color:#999;
+		text-decoration:underline;
+	}
+
+}
+
 body {
     font-family: Conv_Nobel-Regular, Arial;
     color:#555;

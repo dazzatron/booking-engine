@@ -45,6 +45,12 @@
             all: ['app/**/*.js', '!app/tests/*.js']
         },
 
+        nodemon: {
+            dev: {
+                script: 'server/server.js'
+            }
+        },
+
         // create a watcher for the above processes
         watch: {
             sass: {
@@ -76,6 +82,16 @@
             //}
         },
 
+        concurrent: {
+            dev: [
+                'nodemon',
+                'watch'
+            ],
+            options: {
+                logConcurrentOutput: true
+            }
+        },
+
     });
 
     grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -83,9 +99,11 @@
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-nodemon');
+    grunt.loadNpmTasks('grunt-concurrent');
     //grunt.loadNpmTasks('grunt-karma');
     //grunt.loadNpmTasks('grunt-angular-templates');
 
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['concurrent']);
 
 };

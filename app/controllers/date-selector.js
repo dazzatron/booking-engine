@@ -16,6 +16,10 @@
         // select current
         date.selected = true;
 
+        // set form data
+        SharedResource.sharedData.formData = SharedResource.sharedData.formData || {};
+        SharedResource.sharedData.formData.date = date.id;
+
     };
 
     var checkDateSelected = function () {

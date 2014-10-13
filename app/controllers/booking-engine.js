@@ -34,8 +34,9 @@ function ($location, $scope, SharedResource, $rootScope, localStorageService) {
         // kick off
         $scope.tripName = $location.path().split('/')[1];
         $scope.currentPage = $location.path().split('/')[2];
+        var i = $scope.pages.length;
 
-        for (var i = 0, length = $scope.pages.length; i < length; i++) {
+        while (i--) {
 
             if ($scope.pages[i].label === $scope.currentPage) {
                 $scope.currentPageIndex = i;
@@ -46,67 +47,21 @@ function ($location, $scope, SharedResource, $rootScope, localStorageService) {
 
         }
 
-        // all paid, dont allow back
-        //if (SharedResource.sharedData.trip.completed) {
-
-        //}
-
-        // set flag saying completed.
-        //if ($scope.currentPageIndex === $scope.pages.length) {
-        //    SharedResource.sharedData.trip.completed = true;
-        //}
-
         if (!$scope.init) {
-
             $scope.init = true;
-
-            //var ibe = localStorageService.get('ibe');
-
-            //if (ibe) {
-            //    SharedResource.sharedData = ibe;
-            //    SharedResource.sharedData.reloading = false;
-            //} else {
-                $scope.SharedResource.getTrip($scope.tripName);
-            //}
-
+            $scope.SharedResource.getTrip($scope.tripName);
         }
 
+        // check against server???
+        $scope.SharedResource.checkTrip();
+
     });
-
-    //$scope.$watch('SharedResource.sharedData',
-
-    //        function (newValue, oldValue) {
-
-    //            if (newValue) {
-
-    //                // LS
-    //                localStorageService.set('ibe', newValue);
-
-    //            }
-    //        }, true);
-
-
-    // summary scroll
-    //$(window).scroll(function () {
-
-    //    var me = $(this);
-    //    var scrollTop = me.scrollTop();
-
-    //    if (scrollTop > $('.col-summary').offset().top) {
-    //        $('.col-summary').addClass('fixed');
-    //    } else {
-    //        $('.col-summary').removeClass('fixed');
-    //    }
-
-    //});
 
     $scope.$watch('SharedResource.sharedData.trip',
 
             function (newValue, oldValue) {
 
                 if (newValue) {
-
-
 
                     // LS
                     //localStorageService.set('trip', newValue);
@@ -129,6 +84,5 @@ function ($location, $scope, SharedResource, $rootScope, localStorageService) {
                 }
 
             }, true);
-
 
 }]);

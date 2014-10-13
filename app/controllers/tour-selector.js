@@ -12,6 +12,11 @@ function ($scope, $location, SharedResource) {
         // set flag
         tour.selected = !tour.selected;
 
+        // set form data
+        SharedResource.sharedData.formData = SharedResource.sharedData.formData || {};
+        SharedResource.sharedData.formData.tours = SharedResource.sharedData.formData.tours || [];
+        SharedResource.sharedData.formData.tours.push(tour.id);
+
     };
 
     // select options

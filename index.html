@@ -21,17 +21,23 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
 
-<!--    {{ SharedResource.sharedData.trip }}<br />-->
+    {{ SharedResource.sharedData.formData }}<br />
 
     <noscript>
         <p class="chromeframe">Please enable JavaScript to use this site:<a href="http://www.enable-javascript.com/">here</a></p>
     </noscript>
 
-    <div ng-if="SharedResource.sharedData.reloading" class="page-mask">
+    <div ng-if="SharedResource.sharedData.error || SharedResource.sharedData.reloading" class="page-mask">
 
-        <div>
+        <div ng-if="SharedResource.sharedData.reloading">
             <h1>Loading...</h1>
             <img src="img/ajax-loader.gif" />
+        </div>
+
+        <div class="error" ng-if="SharedResource.sharedData.error">
+            <h1>Error...</h1>
+            Sorry, an error has occurred: {{ SharedResource.sharedData.error }}<br /><br />
+            <a href="/">Start again</a>
         </div>
 
     </div>

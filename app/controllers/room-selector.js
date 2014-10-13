@@ -14,7 +14,7 @@
             var totalGuestCost = 0;
 
             // create/clear guests array - should we clear this??
-            $scope.SharedResource.sharedData.trip.guests = [];
+            $scope.SharedResource.sharedData.formData.guests = [];
 
             // loop to create totals/guest form etc
             for (var i = 0, length = $scope.SharedResource.sharedData.trip.rooms.length; i < length; i++) {
@@ -32,10 +32,10 @@
 
                 // for the guests form
                 for (var a = 0, lengtha = currentRoom.adults; a < lengtha; a++) {
-                    $scope.SharedResource.sharedData.trip.guests.push({ 'title': 'Mr', 'type': 'adult' });
+                    $scope.SharedResource.sharedData.formData.guests.push({ 'title': 'Mr', 'type': 'adult' });
                 }
                 for (var b = 0, lengthb = currentRoom.children; b < lengthb; b++) {
-                    $scope.SharedResource.sharedData.trip.guests.push({ 'title': 'Mr', 'type': 'child' });
+                    $scope.SharedResource.sharedData.formData.guests.push({ 'title': 'Mr', 'type': 'child' });
                 }
 
             }
@@ -111,7 +111,7 @@
 
         var newRoomOptions = angular.copy($scope.SharedResource.sharedData.trip.roomOptions);
         $scope.SharedResource.sharedData.trip.rooms.push({ roomOptions: newRoomOptions, selectedRoom: newRoomOptions[0] });
-        SharedResource.sharedData.trip.guests.push({ 'title': 'Mr', 'type': 'adult' });
+        SharedResource.sharedData.formData.guests.push({ 'title': 'Mr', 'type': 'adult' });
 
         // shift page down if user clicks
         if (!init) {
@@ -136,7 +136,7 @@
             if (newValue && !$scope.SharedResource.sharedData.trip.rooms) {
 
                 $scope.SharedResource.sharedData.trip.totalGuests = 1;
-                $scope.SharedResource.sharedData.trip.guests = [];
+                $scope.SharedResource.sharedData.formData.guests = [];
 
                 // empty rooms array to store rooms added.
                 $scope.SharedResource.sharedData.trip.rooms = [];
