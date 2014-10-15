@@ -6,10 +6,13 @@
     $scope.SharedResource = SharedResource;
 
     // function to change date
+    // refactor to radio?
     $scope.changeDate = function (date) {
 
+        var i = SharedResource.sharedData.trip.dates.length;
+
         // deselect all
-        for (var i = 0, length = SharedResource.sharedData.trip.dates.length; i < length; i++) {
+        while (i--) {
             SharedResource.sharedData.trip.dates[i].selected = false;
         }
 
@@ -24,7 +27,9 @@
 
     var checkDateSelected = function () {
 
-        for (var i = 0, length = SharedResource.sharedData.trip.dates.length; i < length; i++) {
+        var i = SharedResource.sharedData.trip.dates.length;
+
+        while (i--) {
 
             if (SharedResource.sharedData.trip.dates[i].selected) {
                 return true;

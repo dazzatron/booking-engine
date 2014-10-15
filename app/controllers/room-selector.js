@@ -14,7 +14,7 @@
             var totalGuestCost = 0;
 
             // create/clear guests array - should we clear this??
-            $scope.SharedResource.sharedData.formData.guests = [];
+            $scope.SharedResource.sharedData.trip.guests = [];
 
             // loop to create totals/guest form etc
             for (var i = 0, length = $scope.SharedResource.sharedData.trip.rooms.length; i < length; i++) {
@@ -32,10 +32,10 @@
 
                 // for the guests form
                 for (var a = 0, lengtha = currentRoom.adults; a < lengtha; a++) {
-                    $scope.SharedResource.sharedData.formData.guests.push({ 'title': 'Mr', 'type': 'adult' });
+                    $scope.SharedResource.sharedData.trip.guests.push({ 'title': 'Mr', 'type': 'adult' });
                 }
                 for (var b = 0, lengthb = currentRoom.children; b < lengthb; b++) {
-                    $scope.SharedResource.sharedData.formData.guests.push({ 'title': 'Mr', 'type': 'child' });
+                    $scope.SharedResource.sharedData.trip.guests.push({ 'title': 'Mr', 'type': 'child' });
                 }
 
             }
@@ -60,58 +60,12 @@
 
     }, true);
 
-    //// function to add person
-    //$scope.addPerson = function (room, type, index) {
-
-    //    // is it over the total allowed for the room?
-    //    // reset to zero or dont allow
-    //    if (room.adults + room.children < room.maxPeople) {
-
-    //        if (type === 'adult') {
-    //            room.adults++;
-    //            // splice into place
-    //            SharedResource.sharedData.trip.guests.splice([(index) * room.adults], 0, { 'title': 'Mr', 'type': type });
-    //        } else {
-    //            room.children++;
-    //            // put at the end
-    //            SharedResource.sharedData.trip.guests.push({ 'title': 'Mr', 'type': type });
-    //        }
-
-    //        // increase grand total
-    //        $scope.SharedResource.sharedData.trip.totalGuests += 1;
-
-    //    }
-
-
-    //};
-
-    //// function to remove person
-    //$scope.removePerson = function (room, type, index) {
-
-    //        // remove person
-    //        if (type === 'adult') {
-    //            if (room.adults > 1) {
-    //                room.adults--;
-    //                $scope.SharedResource.sharedData.trip.totalGuests--;
-    //            }
-    //        } else {
-    //            if (room.children > 0) {
-    //                room.children--;
-    //                $scope.SharedResource.sharedData.trip.totalGuests--;
-    //            }
-    //        }
-
-    //        // remove guest
-    //        SharedResource.sharedData.trip.guests.splice(index, 1);
-
-    //};
-
     // function to add room
     $scope.addRoom = function (init) {
 
         var newRoomOptions = angular.copy($scope.SharedResource.sharedData.trip.roomOptions);
         $scope.SharedResource.sharedData.trip.rooms.push({ roomOptions: newRoomOptions, selectedRoom: newRoomOptions[0] });
-        SharedResource.sharedData.formData.guests.push({ 'title': 'Mr', 'type': 'adult' });
+        SharedResource.sharedData.trip.guests.push({ 'title': 'Mr', 'type': 'adult' });
 
         // shift page down if user clicks
         if (!init) {
@@ -136,7 +90,7 @@
             if (newValue && !$scope.SharedResource.sharedData.trip.rooms) {
 
                 $scope.SharedResource.sharedData.trip.totalGuests = 1;
-                $scope.SharedResource.sharedData.formData.guests = [];
+                $scope.SharedResource.sharedData.trip.guests = [];
 
                 // empty rooms array to store rooms added.
                 $scope.SharedResource.sharedData.trip.rooms = [];

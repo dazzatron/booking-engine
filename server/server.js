@@ -23,7 +23,6 @@ app.all('*', function (req, res, next) {
 app.post('/checkTrip', function (req, res, next) {
 
     res.send(req.body);
-    //console.log(req.body);
 
     // page 2
     // need a country, trip, valid date, at least one person, not over max guests for room and not more than max guests for trip?

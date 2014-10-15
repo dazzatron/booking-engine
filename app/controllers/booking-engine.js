@@ -63,14 +63,12 @@ function ($location, $scope, SharedResource, $rootScope, localStorageService) {
 
                 if (newValue) {
 
-                    // LS
-                    //localStorageService.set('trip', newValue);
-
                     // start with trip cost
                     var grandTotal = SharedResource.sharedData.trip.totalGuestCost;
+                    var i = $scope.SharedResource.sharedData.trip.tours.length;
 
                     // loop through tours
-                    for (var i = 0, length = $scope.SharedResource.sharedData.trip.tours.length; i < length; i++) {
+                    while (i--) {
 
                         if ($scope.SharedResource.sharedData.trip.tours[i].selected) {
                             grandTotal += $scope.SharedResource.sharedData.trip.tours[i].perPerson * SharedResource.sharedData.trip.totalGuests;
